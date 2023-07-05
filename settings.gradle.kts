@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Madifiers"
 include(":sample")
-include(":funText")
+include(":text:bionicText")

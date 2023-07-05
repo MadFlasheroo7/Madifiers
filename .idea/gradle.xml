@@ -9,8 +9,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/funText" />
             <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/text" />
+            <option value="$PROJECT_DIR$/text/bionicText" />
           </set>
         </option>
       </GradleProjectSettings>

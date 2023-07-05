@@ -52,7 +52,7 @@ android {
 
 dependencies {
 
-    implementation(project(":funText"))
+    implementation(project(":text:bionicText"))
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)

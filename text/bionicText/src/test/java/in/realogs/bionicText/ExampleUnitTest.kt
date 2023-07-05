@@ -1,4 +1,4 @@
-package `in`.realogs.htmlParser
+package `in`.realogs.bionicText
 
 import org.junit.Test
 

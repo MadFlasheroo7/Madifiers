@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import `in`.realogs.bionicText.BionicText
 import `in`.realogs.madifiers.ui.theme.MadifiersTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,6 +31,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
+    BionicText(text = "hi there")
     Text(
         text = "Hello $name!",
         modifier = modifier
