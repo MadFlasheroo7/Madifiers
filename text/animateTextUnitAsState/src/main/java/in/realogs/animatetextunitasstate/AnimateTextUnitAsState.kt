@@ -1,4 +1,4 @@
-package `in`.realogs.animatespasstate
+package `in`.realogs.animatetextunitasstate
 
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.AnimationVector1D

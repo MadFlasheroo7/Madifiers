@@ -11,7 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/sample" />
             <option value="$PROJECT_DIR$/text" />
-            <option value="$PROJECT_DIR$/text/animateSpAsState" />
+            <option value="$PROJECT_DIR$/text/animateTextUnitAsState" />
             <option value="$PROJECT_DIR$/text/bionicText" />
           </set>
         </option>

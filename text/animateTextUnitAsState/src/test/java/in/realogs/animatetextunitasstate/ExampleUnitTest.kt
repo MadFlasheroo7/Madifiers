@@ -1,4 +1,4 @@
-package `in`.realogs.animatespasstate
+package `in`.realogs.animatetextunitasstate
 
 import org.junit.Test
 

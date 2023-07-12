@@ -8,19 +8,14 @@ Basically Anything and everything to make jetpack compose development easy and s
 # Features
 - [Bionic Text](#bionic-text)
 
-## Bionic Text
-Bionic Text or Bionic Reading means creating “artificial fixation points” within a text by bolding 
-the first part of each word for our eyes to jump between, “guiding the eyes” across the page and 
-letting the brain complete the rest of the word on its own rather than having to stop and see the
-entirety of every word on a page. This Bionic text is heavily inspired by [Bionic Reading](https://bionic-reading.com/)
-<br>
-
+# Project Structure
 
 # How & Why "Madifiers"?
 When i first tried and learned jetpack compose and on **June 5th, 2021** and was learning about "modifiers",
 my brain went "more like madifiers" so since then i wanted to build a library for compose and name it 
 "Madifiers" and when i saw [Super Extension](https://github.com/AbhishekDoshi26/super_extensions) for flutter 
-by Abhishek Doshi, I got an idea of why not make a library with bunch of modifier, extensions, and composables.
+by Abhishek Doshi and [VelocityX](https://velocityx.dev/) by pawan kumar.So, I got an idea of why 
+not make a library with bunch of modifier, extensions, and composables for jetpack compose. 
 And that's how **Madifiers** came into into life.
 
 # Contribute

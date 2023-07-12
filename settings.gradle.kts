@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "Madifiers"
 include(":sample")
 include(":text:bionicText")
-include(":text:animateSpAsState")
+include(":text:animateTextUnitAsState")

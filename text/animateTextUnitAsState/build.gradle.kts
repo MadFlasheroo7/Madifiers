@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "in.realogs.animatespasstate"
+    namespace = "in.realogs.animatetextunitasstate"
     compileSdk = 33
 
     defaultConfig {

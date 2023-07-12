@@ -1,4 +1,4 @@
-package `in`.realogs.animatespasstate
+package `in`.realogs.animatetextunitasstate
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
