@@ -17,3 +17,4 @@ rootProject.name = "Madifiers"
 include(":sample")
 include(":text:bionicText")
 include(":text:animateTextUnitAsState")
+include(":text:extensions")
