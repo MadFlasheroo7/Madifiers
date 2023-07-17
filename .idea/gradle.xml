@@ -14,6 +14,8 @@
             <option value="$PROJECT_DIR$/text/animateTextUnitAsState" />
             <option value="$PROJECT_DIR$/text/bionicText" />
             <option value="$PROJECT_DIR$/text/extensions" />
+            <option value="$PROJECT_DIR$/window" />
+            <option value="$PROJECT_DIR$/window/windowUtils" />
           </set>
         </option>
       </GradleProjectSettings>
