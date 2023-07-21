@@ -1,6 +1,8 @@
 # Window Utils 
 Window Utils contains many useful composable functions to provide useful window info like
-screen dimensions and system bar size in `Dp` and `Px` and more
+screen dimensions and system bar size in `Dp` and `Px` and more 
+
+You can learn more about Dimensions [here](https://developer.android.com/guide/topics/resources/more-resources#Dimension)
 
 - [ScreenDimensions](https://github.com/MadFlasheroo7/Madifiers/blob/Main/window/windowUtils/src/main/java/in/realogs/windowUtils/WindowInfo.kt#L19)
 - [StatusBars](https://github.com/MadFlasheroo7/Madifiers/blob/Main/window/windowUtils/src/main/java/in/realogs/windowUtils/WindowInfo.kt#L38)

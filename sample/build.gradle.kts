@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "in.realogs.madifiers"
-    compileSdk = 33
+    namespace = libs.versions.namespace.sample.get().toString()
+    compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
-        applicationId = "in.realogs.madifiers"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = libs.versions.applicationId.get().toString()
+        minSdk = libs.versions.min.sdk.get().toInt()
+        targetSdk = libs.versions.target.sdk.get().toInt()
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.version.name.get().toString()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -31,17 +31,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = libs.versions.jvm.target.get().toString()
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get().toString()
     }
     packaging {
         resources {
@@ -53,19 +53,29 @@ android {
 dependencies {
 
     implementation(project(":text:bionicText"))
+    implementation(project(":text:animateTextUnitAsState"))
+    implementation(project(":text:extensions"))
+    implementation(project(":window:windowUtils"))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.window)
     implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material.iconsExtended)
+    implementation(libs.compose.material3.window)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.googleFonts)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+    debugImplementation(libs.compose.ui.manifest)
+    debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.lifecycle.compiler)
+    implementation(libs.lifecycle.runtime)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
+    androidTestImplementation(libs.android.test.ext.junit)
 }
