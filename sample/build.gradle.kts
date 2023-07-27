@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.compose.material.iconsExtended)
     implementation(libs.compose.material3.window)
     implementation(libs.compose.ui)
+    implementation(libs.navigation.compose)
     implementation(libs.compose.ui.googleFonts)
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)

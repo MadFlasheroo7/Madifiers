@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Madifiers</string>
+    <string name="bionic_text_sample">
+        This is sample for Bionic Text. It helps you to read fast by
+        skipping over parts of the word. Now you be the judge of does it work for you?
+        \n!! IT\'s NOT FOR EVERYONE !!
+    </string>
 </resources>
