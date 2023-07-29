@@ -29,6 +29,8 @@ import androidx.compose.ui.unit.TextUnit
  *
  * @param text the text to be displayed
  * @param modifier the [Modifier] to be applied to this layout node
+ * @param fixationStyle style configuration for fixated text using [SpanStyle]
+ * @param nonFixationStyle style configuration for non fixated text using [SpanStyle]
  * @param fontSize the size of glyphs to use when painting the text. See [TextStyle.fontSize].
  * @param fontFamily the font family to be used when rendering the text. See [TextStyle.fontFamily].
  * @param color [Color] to apply to the text. If [Color.Unspecified], and [style] has no color set,
@@ -58,6 +60,8 @@ import androidx.compose.ui.unit.TextUnit
 fun BionicText(
     text: String,
     modifier: Modifier = Modifier,
+    fixationStyle: SpanStyle = SpanStyle(fontWeight = FontWeight.W800),
+    nonFixationStyle: SpanStyle = SpanStyle(),
     fontSize: TextUnit = TextUnit.Unspecified,
     fontFamily: FontFamily? = null,
     color: Color = Color.Unspecified,
@@ -76,13 +80,15 @@ fun BionicText(
     val words = text.split(" ")
     val formattedWord = buildAnnotatedString {
         words.forEach { word ->
-            val fixation = word.length / 2
+            val fixation = word.length / 2 + 1
 
-            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+            withStyle(style = fixationStyle) {
                 append(word.take(fixation))
             }
 
-            append(word.drop(fixation) + " ")
+            withStyle(style = nonFixationStyle) {
+                append(word.drop(fixation) + " ")
+            }
         }
     }
 
@@ -104,7 +110,7 @@ fun BionicText(
     )
 }
 
-@Preview(showBackground = true)
+@Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
 @Composable
 fun PreviewBionicText() {
     val string = "Animations can be a powerful tool for creating engaging and interactive user " +
