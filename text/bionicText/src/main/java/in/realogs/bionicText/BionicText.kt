@@ -1,12 +1,12 @@
 package `in`.realogs.bionicText
 
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.LocalTextStyle
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.text.Paragraph
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLayoutResult
@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 
 /**
  * Bionic Text creates a fixation point within a text by bolding
@@ -62,10 +63,10 @@ fun BionicText(
     modifier: Modifier = Modifier,
     fixationStyle: SpanStyle = SpanStyle(fontWeight = FontWeight.W800),
     nonFixationStyle: SpanStyle = SpanStyle(),
-    fontSize: TextUnit = TextUnit.Unspecified,
+    fontSize: TextUnit = 16.sp,
     fontFamily: FontFamily? = null,
     color: Color = Color.Unspecified,
-    style: TextStyle = LocalTextStyle.current,
+    style: TextStyle = TextStyle(), // Not Using LocalTextStyle to ignore default material styling
     textAlign: TextAlign? = null,
     lineHeight: TextUnit = TextUnit.Unspecified,
     softWrap: Boolean = true,
@@ -92,21 +93,31 @@ fun BionicText(
         }
     }
 
-    Text(
+    val textColor = color.takeOrElse {
+        style.color.takeOrElse {
+            LocalContentColor.current
+        }
+    }
+
+    val mergedStyle = style.merge(
+        TextStyle(
+            fontFamily = fontFamily,
+            fontSize = fontSize,
+            color = textColor,
+            textAlign = textAlign,
+            lineHeight = lineHeight
+        )
+    )
+    BasicText(
         text = formattedWord,
         modifier = modifier,
-        fontSize = fontSize,
-        fontFamily = fontFamily,
-        color = color,
-        style = style,
-        textAlign = textAlign,
-        lineHeight = lineHeight,
-        softWrap = softWrap,
+        style = mergedStyle,
+        onTextLayout = onTextLayout,
         overflow = overflow,
+        softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
-        inlineContent = inlineContent,
-        onTextLayout = onTextLayout
+        inlineContent = inlineContent
     )
 }
 
