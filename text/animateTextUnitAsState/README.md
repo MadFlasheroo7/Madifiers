@@ -16,4 +16,4 @@ val fontSize by animateTextUnitAsState (
 Check Out Working Sample [here](../../sample/src/main/java/in/realogs/madifiers/ui/screens/AnimateTextUnit.kt)
 
 # Video
-video here
+https://github.com/MadFlasheroo7/Madifiers/assets/57130085/21630674-6ee0-42cb-a981-7bad0408d0f6
