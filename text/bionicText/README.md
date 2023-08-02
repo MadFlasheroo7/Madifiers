@@ -18,4 +18,5 @@ BionicText(
 Check Out Working Sample [here](../../sample/src/main/java/in/realogs/madifiers/ui/screens/BionicText.kt)
 
 # Video
-[Video here]
+https://github.com/MadFlasheroo7/Madifiers/assets/57130085/16dea78a-8597-4ffd-81c0-726a6425f405
+
