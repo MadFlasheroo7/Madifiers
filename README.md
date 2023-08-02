@@ -6,19 +6,27 @@ Madifiers is bunch of pre-made composable, modifiers, extension functions etc...
 Basically Anything and everything to make jetpack compose development easy and straight forward
 
 # Features
-- [Bionic Text](#bionic-text)
+- [Bionic Text](/text/bionicText)
+- [Animate TextUnit](/text/animateTextUnitAsState)
+- [Window Info](/window/windowUtils)
 
 # Project Structure
+```kotlin
+TODO()
+```
 
 # How & Why "Madifiers"?
 When i first tried and learned jetpack compose and on **June 5th, 2021** and was learning about "modifiers",
 my brain went "more like madifiers" so since then i wanted to build a library for compose and name it 
 "Madifiers" and when i saw [Super Extension](https://github.com/AbhishekDoshi26/super_extensions) for flutter 
-by Abhishek Doshi and [VelocityX](https://velocityx.dev/) by pawan kumar.So, I got an idea of why 
+by Abhishek Doshi and [VelocityX](https://velocityx.dev/) by pawan kumar. So, I got an idea of why 
 not make a library with bunch of modifier, extensions, and composables for jetpack compose. 
 And that's how **Madifiers** came into into life.
 
 # Contribute
+```kotlin
+TODO()
+```
 
 # License
 ```

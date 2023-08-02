@@ -6,6 +6,16 @@ entirety of every word on a page. This Bionic text is heavily inspired by [Bioni
 
 # Sample
 ```kotlin
-    TODO("ADD SAMPLE")
+BionicText(
+    text = "...",
+    textAlign = ...,
+    modifier = ...,
+    fixationStyle = SpanStyle(),
+    nonFixationStyle = SpanStyle()
+    ...
+)
 ```
-# ScreenShot
+Check Out Working Sample [here](../../sample/src/main/java/in/realogs/madifiers/ui/screens/BionicText.kt)
+
+# Video
+[Video here]

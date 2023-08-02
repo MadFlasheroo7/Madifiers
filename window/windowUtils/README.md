@@ -48,11 +48,12 @@ val navigationBarSize = WindowInsets.systemBars.asPaddingValues().calculateBotto
 # isGestureNavigation
 **isGestureNavigation** is a hacky way to check if device is using gesture navigation bar or 
 3 button nav bar
+> Note: Doesn't work for tablet or foldable devices
 
 # isInLandscapeMode
 **isInLandscapeMode** checks if device is in landscape orientation
 
 # Screenshots
-```kotlin
-    TODO("Add Screenshot")
-```
+| Portrait                                 | landscape                                           |
+|------------------------------------------|-----------------------------------------------------|
+| ![](../../art/windowInfo.png "portrait") | ![](../../art/windowInfo-landscape.png "landscape") |
