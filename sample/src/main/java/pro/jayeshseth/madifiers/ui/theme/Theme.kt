@@ -1,4 +1,4 @@
-package `in`.realogs.madifiers.ui.theme
+package pro.jayeshseth.madifiers.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package `in`.realogs.madifiers.ui.screens
+package pro.jayeshseth.madifiers.ui.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

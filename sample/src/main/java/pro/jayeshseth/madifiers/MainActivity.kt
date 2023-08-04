@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import pro.jayeshseth.bionicText.BionicText
-import `in`.realogs.madifiers.ui.theme.MadifiersTheme
+import pro.jayeshseth.madifiers.ui.theme.MadifiersTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

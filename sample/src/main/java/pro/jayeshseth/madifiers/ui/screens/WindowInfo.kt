@@ -1,4 +1,4 @@
-package `in`.realogs.madifiers.ui.screens
+package pro.jayeshseth.madifiers.ui.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import `in`.realogs.madifiers.ui.theme.MadifiersTheme
+import pro.jayeshseth.madifiers.ui.theme.MadifiersTheme
 import pro.jayeshseth.windowUtils.NavigationBar
 import pro.jayeshseth.windowUtils.ScreenDimensions
 import pro.jayeshseth.windowUtils.StatusBars

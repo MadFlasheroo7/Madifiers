@@ -1,4 +1,4 @@
-package `in`.realogs.madifiers.ui.theme
+package pro.jayeshseth.madifiers.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

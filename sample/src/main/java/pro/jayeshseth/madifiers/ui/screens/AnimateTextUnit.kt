@@ -1,4 +1,4 @@
-package `in`.realogs.madifiers.ui.screens
+package pro.jayeshseth.madifiers.ui.screens
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.Spring
@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pro.jayeshseth.animatetextunitasstate.animateTextUnitAsState
-import `in`.realogs.madifiers.ui.theme.MadifiersTheme
+import pro.jayeshseth.madifiers.ui.theme.MadifiersTheme
 
 @Composable
 fun AnimateTextUnitScreen() {
