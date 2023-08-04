@@ -4,7 +4,7 @@ activity-compose = "1.7.2"
 androidGradlePlugin = "8.1.0-rc01"
 androidx-test-ext-junit = "1.1.5"
 androidx-window = "1.1.0"
-applicationId = "in.realogs.madifiers"
+applicationId = "pro.jayeshseth.madifiers"
 coil = "2.3.0"
 compile-sdk = "33"
 compose-bom = "2023.06.01"
@@ -29,17 +29,18 @@ lifecycle = "2.6.1"
 lifecycle-runtime-ktx = "2.6.1"
 material = "1.9.0"
 min-sdk = "24"
-namespace-animateTextUnitAsState = "in.realogs.animatetextunitasstate"
-namespace-bionicText = "in.realogs.bionictext"
-namespace-sample = "in.realogs.madifiers"
-namespace-textExtensions = "in.realogs.textextensions"
-namespace-windowUtils = "in.realogs.windowutils"
+namespace-animateTextUnitAsState = "pro.jayeshseth.animatetextunitasstate"
+namespace-bionicText = "pro.jayeshseth.bionictext"
+namespace-sample = "pro.jayeshseth.madifiers"
+namespace-textExtensions = "pro.jayeshseth.textextensions"
+namespace-windowUtils = "pro.jayeshseth.windowutils"
 navigation = "2.6.0"
 navigation-hilt = "1.0.0"
 okhttp = "4.10.0"
 palette = "1.0.0"
 retrofit = "2.9.0"
 room = "2.5.2"
+spotless = "6.20.0"
 target-sdk = "33"
 version-code = "1"
 version-name = "1.0"  # X.Y.Z; X = Major, Y = minor, Z = Patch level
@@ -157,5 +158,6 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 
 [bundles]
