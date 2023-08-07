@@ -1,3 +1,18 @@
+/*
+ * Copyright 2023 Jayesh Seth
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package pro.jayeshseth.bionicText
 
 import androidx.compose.foundation.text.BasicText
@@ -58,78 +73,77 @@ import androidx.compose.ui.unit.sp
  * functionality to the text. For example, to draw selection around the text.
  */
 @Composable
-fun BionicText(
-    text: String,
-    modifier: Modifier = Modifier,
-    fixationStyle: SpanStyle = SpanStyle(fontWeight = FontWeight.W800),
-    nonFixationStyle: SpanStyle = SpanStyle(),
-    fontSize: TextUnit = 16.sp,
-    fontFamily: FontFamily? = null,
-    color: Color = Color.Unspecified,
-    style: TextStyle = TextStyle(), // Not Using LocalTextStyle to ignore default material styling
-    textAlign: TextAlign? = null,
-    lineHeight: TextUnit = TextUnit.Unspecified,
-    softWrap: Boolean = true,
-    overflow: TextOverflow = TextOverflow.Clip,
-    maxLines: Int = Int.MAX_VALUE,
-    minLines: Int = 1,
-    inlineContent: Map<String, InlineTextContent> = mapOf(),
-    onTextLayout: (TextLayoutResult) -> Unit = {},
+public fun BionicText(
+  text: String,
+  modifier: Modifier = Modifier,
+  fixationStyle: SpanStyle = SpanStyle(fontWeight = FontWeight.W800),
+  nonFixationStyle: SpanStyle = SpanStyle(),
+  fontSize: TextUnit = 16.sp,
+  fontFamily: FontFamily? = null,
+  color: Color = Color.Unspecified,
+  style: TextStyle = TextStyle(), // Not Using LocalTextStyle to ignore default material styling
+  textAlign: TextAlign? = null,
+  lineHeight: TextUnit = TextUnit.Unspecified,
+  softWrap: Boolean = true,
+  overflow: TextOverflow = TextOverflow.Clip,
+  maxLines: Int = Int.MAX_VALUE,
+  minLines: Int = 1,
+  inlineContent: Map<String, InlineTextContent> = mapOf(),
+  onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
-    // TODO(improve fixation logic)
-    // TODO(Add saccade)
-    val words = text.split(" ")
-    val formattedWord = buildAnnotatedString {
-        words.forEach { word ->
-            val fixation = word.length / 2 + 1
+  // TODO(improve fixation logic)
+  // TODO(Add saccade)
+  val words = text.split(" ")
+  val formattedWord = buildAnnotatedString {
+    words.forEach { word ->
+      val fixation = word.length / 2 + 1
 
-            withStyle(style = fixationStyle) {
-                append(word.take(fixation))
-            }
+      withStyle(style = fixationStyle) {
+        append(word.take(fixation))
+      }
 
-            withStyle(style = nonFixationStyle) {
-                append(word.drop(fixation) + " ")
-            }
-        }
+      withStyle(style = nonFixationStyle) {
+        append(word.drop(fixation) + " ")
+      }
     }
+  }
 
-    val textColor = color.takeOrElse {
-        style.color.takeOrElse {
-            LocalContentColor.current
-        }
+  val textColor = color.takeOrElse {
+    style.color.takeOrElse {
+      LocalContentColor.current
     }
+  }
 
-    val mergedStyle = style.merge(
-        TextStyle(
-            fontFamily = fontFamily,
-            fontSize = fontSize,
-            color = textColor,
-            textAlign = textAlign,
-            lineHeight = lineHeight
-        )
-    )
-    BasicText(
-        text = formattedWord,
-        modifier = modifier,
-        style = mergedStyle,
-        onTextLayout = onTextLayout,
-        overflow = overflow,
-        softWrap = softWrap,
-        maxLines = maxLines,
-        minLines = minLines,
-        inlineContent = inlineContent
-    )
+  val mergedStyle = style.merge(
+    TextStyle(
+      fontFamily = fontFamily,
+      fontSize = fontSize,
+      color = textColor,
+      textAlign = textAlign,
+      lineHeight = lineHeight,
+    ),
+  )
+  BasicText(
+    text = formattedWord,
+    modifier = modifier,
+    style = mergedStyle,
+    onTextLayout = onTextLayout,
+    overflow = overflow,
+    softWrap = softWrap,
+    maxLines = maxLines,
+    minLines = minLines,
+    inlineContent = inlineContent,
+  )
 }
 
 @Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
 @Composable
-fun PreviewBionicText() {
-    val string = "Animations can be a powerful tool for creating engaging and interactive user " +
-            "interfaces. With Jetpack Compose, creating animations has become easier than ever. In " +
-            "this blog post, we'll walk through the basics of using animations in Jetpack Compose " +
-            "and explore some examples to get you started."
-    BionicText(
-        text = string
-    )
+public fun PreviewBionicText() {
+  val string = "Animations can be a powerful tool for creating engaging and interactive user " +
+    "interfaces. With Jetpack Compose, creating animations has become easier than ever. In " +
+    "this blog post, we'll walk through the basics of using animations in Jetpack Compose " +
+    "and explore some examples to get you started."
+  BionicText(
+    text = string,
+  )
 }
-

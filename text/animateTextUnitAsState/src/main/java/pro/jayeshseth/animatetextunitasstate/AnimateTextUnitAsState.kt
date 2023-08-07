@@ -1,3 +1,18 @@
+/*
+ * Copyright 2023 Jayesh Seth
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package pro.jayeshseth.animatetextunitasstate
 
 import androidx.compose.animation.core.AnimationSpec
@@ -26,20 +41,20 @@ import androidx.compose.ui.unit.sp
  * @return A [State] object, the value of which is updated by animation.
  */
 @Composable
-fun animateTextUnitAsState(
-    targetValue: TextUnit,
-    animationSpec: AnimationSpec<TextUnit> = tween(easing = LinearEasing),
-    label: String = "TextUnit Animation",
-    finishedListener: ((TextUnit) -> Unit)? = null
+public fun animateTextUnitAsState(
+  targetValue: TextUnit,
+  animationSpec: AnimationSpec<TextUnit> = tween(easing = LinearEasing),
+  label: String = "TextUnit Animation",
+  finishedListener: ((TextUnit) -> Unit)? = null,
 ): State<TextUnit> {
-    return animateValueAsState(
-        targetValue = targetValue,
-        typeConverter = TwoWayConverter(
-            convertToVector = { AnimationVector1D(it.value) },
-            convertFromVector = { it.value.sp }
-        ),
-        animationSpec = animationSpec,
-        label = label,
-        finishedListener = finishedListener
-    )
-}
+  return animateValueAsState(
+    targetValue = targetValue,
+    typeConverter = TwoWayConverter(
+      convertToVector = { AnimationVector1D(it.value) },
+      convertFromVector = { it.value.sp },
+    ),
+    animationSpec = animationSpec,
+    label = label,
+    finishedListener = finishedListener,
+  )
+} // Make Functions Public due to Xexplicit Api mode

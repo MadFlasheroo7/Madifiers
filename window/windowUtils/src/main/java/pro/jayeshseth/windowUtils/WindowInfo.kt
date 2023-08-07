@@ -1,3 +1,18 @@
+/*
+ * Copyright 2023 Jayesh Seth
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package pro.jayeshseth.windowUtils
 
 import android.content.res.Configuration
@@ -16,60 +31,60 @@ import androidx.compose.ui.unit.dp
  * [ScreenDimensions] returns the screen height and width in [Dp] and [Px]
  */
 @Composable
-fun ScreenDimensions(): Dimensions {
-    val configuration = LocalConfiguration.current
-    val density = LocalDensity.current
+public fun ScreenDimensions(): Dimensions {
+  val configuration = LocalConfiguration.current
+  val density = LocalDensity.current
 
-    // Values in Dp
-    val heightInDp = configuration.screenHeightDp.dp
-    val widthInDp = configuration.screenWidthDp.dp
+  // Values in Dp
+  val heightInDp = configuration.screenHeightDp.dp
+  val widthInDp = configuration.screenWidthDp.dp
 
-    // Values in Px
-    val heightInPx = with(density) { heightInDp.roundToPx() }
-    val widthInPx = with(density) { widthInDp.roundToPx() }
+  // Values in Px
+  val heightInPx = with(density) { heightInDp.roundToPx() }
+  val widthInPx = with(density) { widthInDp.roundToPx() }
 
-    return Dimensions(heightInDp, widthInDp, heightInPx, widthInPx)
+  return Dimensions(heightInDp, widthInDp, heightInPx, widthInPx)
 }
 
 /**
  * [StatusBars] returns the status bar height in [Dp] and [Px]
  */
 @Composable
-fun StatusBars(): Dimensions {
-    val statusBarSize = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
-    val density = LocalDensity.current
+public fun StatusBars(): Dimensions {
+  val statusBarSize = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
+  val density = LocalDensity.current
 
-    val sizeInPx = with(density) { statusBarSize.roundToPx() }
-    return Dimensions(heightInDp = statusBarSize, heightInPx = sizeInPx)
+  val sizeInPx = with(density) { statusBarSize.roundToPx() }
+  return Dimensions(heightInDp = statusBarSize, heightInPx = sizeInPx)
 }
 
 /**
  * [NavigationBar] returns the navigation bar height in [Dp] and [Px]
  */
 @Composable
-fun NavigationBar(): Dimensions {
-    val navigationBarSize = WindowInsets.systemBars.asPaddingValues().calculateBottomPadding()
-    val density = LocalDensity.current
+public fun NavigationBar(): Dimensions {
+  val navigationBarSize = WindowInsets.systemBars.asPaddingValues().calculateBottomPadding()
+  val density = LocalDensity.current
 
-    val sizeInPx = with(density) { navigationBarSize.roundToPx() }
-    return Dimensions(heightInDp = navigationBarSize, heightInPx = sizeInPx)
+  val sizeInPx = with(density) { navigationBarSize.roundToPx() }
+  return Dimensions(heightInDp = navigationBarSize, heightInPx = sizeInPx)
 }
 
 /**
  * [isGestureNavigation] checks if device is using gesture navigation bar
  */
 @Composable
-fun isGestureNavigation(): Boolean {
-    val safeGesture =
-        WindowInsets.safeGestures.asPaddingValues().calculateLeftPadding(LayoutDirection.Ltr)
-    return safeGesture != 0.dp
+public fun isGestureNavigation(): Boolean {
+  val safeGesture =
+    WindowInsets.safeGestures.asPaddingValues().calculateLeftPadding(LayoutDirection.Ltr)
+  return safeGesture != 0.dp
 }
 
 /**
  * [isInLandscapeMode] checks if device is in landscape orientation
  */
 @Composable
-fun isInLandscapeMode(): Boolean {
-    val configuration = LocalConfiguration.current
-    return configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+public fun isInLandscapeMode(): Boolean {
+  val configuration = LocalConfiguration.current
+  return configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 }

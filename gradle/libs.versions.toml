@@ -1,7 +1,7 @@
 [versions]
 accompanist = "0.31.2-alpha"
 activity-compose = "1.7.2"
-androidGradlePlugin = "8.1.0-rc01"
+androidGradlePlugin = "8.1.0"
 androidx-test-ext-junit = "1.1.5"
 androidx-window = "1.1.0"
 applicationId = "pro.jayeshseth.madifiers"
@@ -11,18 +11,18 @@ compose-bom = "2023.06.01"
 compose-compiler = "1.5.0"
 core-ktx = "1.10.1"
 core-splashscreen = "1.0.1"
-coroutines = "1.7.1"
+coroutines = "1.7.2"
 datastore = "1.0.0"
 espresso-core = "3.5.1"
 gms = "4.3.14"
 google-services = "4.3.15"
 gson = "2.10"
-hilt = "2.46.1"
+hilt = "2.47"
 hilt-ext = "1.0.0"
 junit = "4.13.2"
 jvm-target = "17"
 kotlin = "1.9.0"
-kotlin-bom = "1.8.0"
+kotlin-bom = "1.8.20"
 kotlinxSerializationJson = "1.4.1"
 ksp = "1.8.10-1.0.9"
 lifecycle = "2.6.1"
@@ -135,6 +135,11 @@ okhttp-loggin-interceptor = { group = "com.squareup.okhttp3", name = "logging-in
 # Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
 
 # [Test Dependencies]
 # Android Tests
