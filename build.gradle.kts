@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.spotless)
+    alias(libs.plugins.nexus.plugin)
     alias(libs.plugins.kotlin.jvm) apply false
 }
-true // Needed to make the Suppress annotation work for the plugins block
+
+apply(from = "${rootDir}/scripts/publish-root.gradle")

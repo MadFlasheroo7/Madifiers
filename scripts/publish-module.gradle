@@ -1,0 +1,74 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+tasks.register('androidSourcesJar', Jar) {
+    archiveClassifier.set('sources')
+    if (project.plugins.findPlugin("com.android.library")) {
+        from android.sourceSets.main.kotlin.srcDirs
+        from android.sourceSets.main.java.srcDirs
+    } else {
+        from sourceSets.main.java.srcDirs
+        from sourceSets.main.kotlin.srcDirs
+    }
+}
+
+artifacts {
+    archives androidSourcesJar
+}
+
+group = PUBLISH_GROUP_ID
+version = PUBLISH_VERSION
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                tasks.named("generateMetadataFileForReleasePublication").configure { dependsOn("androidSourcesJar") }
+                groupId PUBLISH_GROUP_ID
+                artifactId PUBLISH_ARTIFACT_ID
+                version PUBLISH_VERSION
+
+                // Two artifacts, the `aar` (or `jar`) and the sources
+                if (project.plugins.findPlugin("com.android.library")) {
+                    from components.release
+                } else {
+                    from components.java
+                }
+
+                pom {
+                    name = PUBLISH_ARTIFACT_ID
+                    description = 'Madifiers is a library that simplifies Jetpack Compose development by providing a collection of modifiers, extension functions, and composables.'
+                    url = 'https://github.com/MadFlasheroo7/Madifiers'
+                    licenses {
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'MadFlasher'
+                            name = 'Jayesh Seth'
+                            email = 'jayesh.dev.acc@gmail.com'
+                            url = 'https://github.com/MadFlasheroo7'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:github.com/MadFlasheroo7/Madifiers.git'
+                        developerConnection = 'scm:git:ssh://github.com/MadFlasheroo7/Madifiers.git'
+                        url = 'https://github.com/MadFlasheroo7/Madifiers/tree/Main'
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    useInMemoryPgpKeys(
+            rootProject.ext["signing.keyId"],
+            rootProject.ext["signing.secretKeyRingFile"],
+            rootProject.ext["signing.password"],
+    )
+    sign publishing.publications
+}
