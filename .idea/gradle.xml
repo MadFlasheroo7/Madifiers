@@ -22,15 +22,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
-            <option value="$PROJECT_DIR$/sample" />
-            <option value="$PROJECT_DIR$/text" />
-            <option value="$PROJECT_DIR$/text/animateTextUnitAsState" />
-            <option value="$PROJECT_DIR$/text/bionicText" />
-            <option value="$PROJECT_DIR$/text/extensions" />
-            <option value="$PROJECT_DIR$/window" />
-            <option value="$PROJECT_DIR$/window/windowUtils" />
+            <option value="$PROJECT_DIR$/madifiers-text" />
+            <option value="$PROJECT_DIR$/madifiers-text/animateTextUnitAsState" />
+            <option value="$PROJECT_DIR$/madifiers-text/bionicText" />
+            <option value="$PROJECT_DIR$/madifiers-text/extensions" />
+            <option value="$PROJECT_DIR$/madifiers-window" />
+            <option value="$PROJECT_DIR$/madifiers-window/windowUtils" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
