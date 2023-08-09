@@ -17,8 +17,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Madifiers"
-include(":sample")
-include(":text:bionicText")
-include(":text:animateTextUnitAsState")
-include(":text:extensions")
-include(":window:windowUtils")
+include(":app")
+include(":madifiers-text:bionicText")
+include(":madifiers-text:animateTextUnitAsState")
+include(":madifiers-text:extensions")
+include(":madifiers-window:windowUtils")

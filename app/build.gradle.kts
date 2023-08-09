@@ -50,10 +50,10 @@ android {
 
 dependencies {
 
-    implementation(project(":text:bionicText"))
-    implementation(project(":text:animateTextUnitAsState"))
-    implementation(project(":text:extensions"))
-    implementation(project(":window:windowUtils"))
+    implementation(project(":madifiers-text:bionicText"))
+    implementation(project(":madifiers-text:animateTextUnitAsState"))
+    implementation(project(":madifiers-text:extensions"))
+    implementation(project(":madifiers-window:windowUtils"))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.window)
     implementation(libs.core.ktx)
