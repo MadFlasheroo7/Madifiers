@@ -17,6 +17,7 @@
           </compositeBuild>
         </compositeConfiguration>
         <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
@@ -25,6 +26,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
+            <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/madifiers-text" />
             <option value="$PROJECT_DIR$/madifiers-text/animateTextUnitAsState" />
             <option value="$PROJECT_DIR$/madifiers-text/bionicText" />
