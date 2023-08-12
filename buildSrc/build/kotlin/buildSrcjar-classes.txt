@@ -1,1 +1,0 @@
-C:\Users\Jayesh\AndroidStudioProjects\Madifiers\buildSrc\build\classes\kotlin\main\pro\jayeshseth\madifiers\Versions.class
