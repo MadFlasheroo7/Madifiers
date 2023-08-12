@@ -43,6 +43,7 @@ retrofit = "2.9.0"
 room = "2.5.2"
 spotless = "6.20.0"
 target-sdk = "33"
+vanniktechMavenPublish = "0.25.3"
 version-code = "1"
 version-name = "1.0"  # X.Y.Z; X = Major, Y = minor, Z = Patch level
 
@@ -166,5 +167,6 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 nexus-plugin = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPlugin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
 
 [bundles]

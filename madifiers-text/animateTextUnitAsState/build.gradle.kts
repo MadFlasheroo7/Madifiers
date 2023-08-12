@@ -13,12 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import pro.jayeshseth.madifiers.Versions
+
 @Suppress("DSL_SCOPE_VIOLATION")
 
 plugins {
     id("madifiers.library.compose")
     id("madifiers.spotless")
 }
+
+rootProject.extra.apply {
+    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
+    set("PUBLISH_ARTIFACT_ID", "animateTextUnitAsState")
+    set("PUBLISH_VERSION", Versions.animateTextUnitAsState)
+}
+
+apply(from = "${rootDir}/scripts/publish-module.gradle")
 
 android {
     namespace = libs.versions.namespace.animateTextUnitAsState.get().toString()

@@ -13,11 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+import pro.jayeshseth.madifiers.Versions
+
+@Suppress("DSL_SCOPE_VIOLATION")
+
 plugins {
     id("madifiers.library.compose")
     id("madifiers.spotless")
 }
+
+rootProject.extra.apply {
+    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
+    set("PUBLISH_ARTIFACT_ID", "bionicText")
+    set("PUBLISH_VERSION", Versions.bionicText)
+}
+
+apply(from = "${rootDir}/scripts/publish-module.gradle")
 
 android {
     namespace = libs.versions.namespace.bionicText.get().toString()

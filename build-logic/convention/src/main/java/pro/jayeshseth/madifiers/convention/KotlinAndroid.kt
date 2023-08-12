@@ -25,7 +25,6 @@ internal fun Project.configureKotlinAndroid(
             freeCompilerArgs = freeCompilerArgs + listOf(
                 "-opt-in=kotlin.RequiresOptIn",
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-                "-opt-in=com.skydoves.landscapist.InternalLandscapistApi",
             )
         }
 

@@ -65,10 +65,6 @@ afterEvaluate {
 }
 
 signing {
-    useInMemoryPgpKeys(
-            rootProject.ext["signing.keyId"],
-            rootProject.ext["signing.secretKeyRingFile"],
-            rootProject.ext["signing.password"],
-    )
+    useGpgCmd()
     sign publishing.publications
 }
