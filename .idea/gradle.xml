@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
             <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/madifiers-example" />
             <option value="$PROJECT_DIR$/madifiers-text" />
             <option value="$PROJECT_DIR$/madifiers-text/animateTextUnitAsState" />
             <option value="$PROJECT_DIR$/madifiers-text/bionicText" />
