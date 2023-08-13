@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import pro.jayeshseth.madifiers.Versions
+// import version.kt here
+// import pro.jayeshseth.madifiers.Versions
 
 @Suppress("DSL_SCOPE_VIOLATION")
 
@@ -22,16 +23,18 @@ plugins {
     id("madifiers.spotless")
 }
 
-rootProject.extra.apply {
-    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
-    set("PUBLISH_ARTIFACT_ID", "windowUtils")
-    set("PUBLISH_VERSION", Versions.windowUtils)
-}
+// declare variables for maven here
+//rootProject.extra.apply {
+//    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
+//    set("PUBLISH_ARTIFACT_ID", "libraryName")
+//    set("PUBLISH_VERSION", Versions.<libraryName>)
+//}
 
-apply(from = "${rootDir}/scripts/publish-module.gradle")
+//apply(from = "${rootDir}/scripts/publish-module.gradle")
 
 android {
-    namespace = libs.versions.namespace.windowUtils.get().toString()
+    // recommended to declare namespace in version catalog and call here
+    namespace = "pro.jayeshseth.<libraryName>"
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
@@ -44,17 +47,6 @@ android {
 
 dependencies {
     implementation(libs.core.ktx)
-    implementation(libs.androidx.window)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.compose.material3)
-    implementation(libs.compose.material3.window)
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.runtime)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.graphics)
-    implementation(libs.compose.ui.tooling.preview)
-    debugImplementation(libs.compose.ui.manifest)
-    debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.appcompat)
+    implementation(libs.material)
 }
-

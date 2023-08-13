@@ -45,7 +45,9 @@ spotless = "6.20.0"
 target-sdk = "33"
 vanniktechMavenPublish = "0.25.3"
 version-code = "1"
-version-name = "1.0"  # X.Y.Z; X = Major, Y = minor, Z = Patch level
+version-name = "1.0"
+appcompat = "1.6.1"
+com-google-android-material-material = "1.9.0"  # X.Y.Z; X = Major, Y = minor, Z = Patch level
 
 [libraries]
 # Accompanist
@@ -155,6 +157,8 @@ android-test-navigation = { group = "androidx.navigation", name = "navigation-te
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }

@@ -1,14 +1,34 @@
 # Window Utils 
+![Maven Central](https://img.shields.io/maven-central/v/pro.jayeshseth.madifiers/windowUtils?style=flat-square)
+
 Window Utils contains many useful composable functions to provide useful window info like
 screen dimensions and system bar size in `Dp` and `Px` and more 
 
 You can learn more about Dimensions [here](https://developer.android.com/guide/topics/resources/more-resources#Dimension)
 
-- [ScreenDimensions](https://github.com/MadFlasheroo7/Madifiers/blob/Main/window/windowUtils/src/main/java/in/realogs/windowUtils/WindowInfo.kt#L19)
-- [StatusBars](https://github.com/MadFlasheroo7/Madifiers/blob/Main/window/windowUtils/src/main/java/in/realogs/windowUtils/WindowInfo.kt#L38)
-- [NavigationBar](https://github.com/MadFlasheroo7/Madifiers/blob/Main/window/windowUtils/src/main/java/in/realogs/windowUtils/WindowInfo.kt#L50)
-- [isGestureNavigation](https://github.com/MadFlasheroo7/Madifiers/blob/Main/window/windowUtils/src/main/java/in/realogs/windowUtils/WindowInfo.kt#L62)
-- [isInLandscapeMode](https://github.com/MadFlasheroo7/Madifiers/blob/Main/window/windowUtils/src/main/java/in/realogs/windowUtils/WindowInfo.kt#L72)
+- [ScreenDimensions](https://github.com/MadFlasheroo7/Madifiers/blob/Main/madifiers-window/windowUtils/src/main/java/pro/jayeshseth/windowUtils/WindowInfo.kt#L34)
+- [StatusBars](https://github.com/MadFlasheroo7/Madifiers/blob/Main/madifiers-window/windowUtils/src/main/java/pro/jayeshseth/windowUtils/WindowInfo.kt#L53)
+- [NavigationBar](https://github.com/MadFlasheroo7/Madifiers/blob/Main/madifiers-window/windowUtils/src/main/java/pro/jayeshseth/windowUtils/WindowInfo.kt#L65)
+- [isGestureNavigation](https://github.com/MadFlasheroo7/Madifiers/blob/Main/madifiers-window/windowUtils/src/main/java/pro/jayeshseth/windowUtils/WindowInfo.kt#L77)
+- [isInLandscapeMode](https://github.com/MadFlasheroo7/Madifiers/blob/Main/madifiers-window/windowUtils/src/main/java/pro/jayeshseth/windowUtils/WindowInfo.kt#L87)
+
+# Setup
+add maven central repo to your root `settings.gradle.kts`
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+```
+add the dependency to your module's `build.gradle.kts`
+```kotlin
+dependencies {
+    implementation("pro.jayeshseth.madifiers:windowUtils:<version>")
+}
+```
 
 # Screen Dimensions
 **ScreenDimensions** returns the screen height and width in `Dp` and `Px`
@@ -57,3 +77,5 @@ val navigationBarSize = WindowInsets.systemBars.asPaddingValues().calculateBotto
 | Portrait                                 | landscape                                           |
 |------------------------------------------|-----------------------------------------------------|
 | ![](../../art/windowInfo.png "portrait") | ![](../../art/windowInfo-landscape.png "landscape") |
+
+Check Out Working Sample [here](../../app/src/main/java/pro/jayeshseth/madifiers/ui/screens/WindowInfo.kt)

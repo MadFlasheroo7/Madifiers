@@ -1,3 +1,18 @@
+/*
+ * Copyright 2023 Jayesh Seth
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package pro.jayeshseth.madifiers.ui.screens
 
 import androidx.compose.foundation.layout.Box
@@ -30,170 +45,178 @@ import pro.jayeshseth.bionicText.BionicText
 import pro.jayeshseth.madifiers.R
 
 val fontWeightList = listOf(
-    FontWeight.W900,
-    FontWeight.W800,
-    FontWeight.W700,
-    FontWeight.W600,
-    FontWeight.W500,
-    FontWeight.W400,
-    FontWeight.W300,
-    FontWeight.W200,
-    FontWeight.W100,
+  FontWeight.W900,
+  FontWeight.W800,
+  FontWeight.W700,
+  FontWeight.W600,
+  FontWeight.W500,
+  FontWeight.W400,
+  FontWeight.W300,
+  FontWeight.W200,
+  FontWeight.W100,
 )
 
 val textAlignList = listOf(
-    TextAlign.Left,
-    TextAlign.Center,
-    TextAlign.Right
+  TextAlign.Left,
+  TextAlign.Center,
+  TextAlign.Right,
 )
 
 @Composable
 fun BionicTextScreen() {
-    var fixationOpacity by remember { mutableStateOf(1f) }
-    var fixationFontWeight by remember { mutableStateOf(0f) }
-    var fixationFontSize by remember { mutableStateOf(35f) }
+  var fixationOpacity by remember { mutableStateOf(1f) }
+  var fixationFontWeight by remember { mutableStateOf(0f) }
+  var fixationFontSize by remember { mutableStateOf(35f) }
 
-    var nonFixationOpacity by remember { mutableStateOf(1f) }
-    var nonFixationFontWeight by remember { mutableStateOf(0f) }
-    var nonFixationFontSize by remember { mutableStateOf(35f) }
+  var nonFixationOpacity by remember { mutableStateOf(1f) }
+  var nonFixationFontWeight by remember { mutableStateOf(0f) }
+  var nonFixationFontSize by remember { mutableStateOf(35f) }
 
-    var alignment by remember { mutableStateOf(0f) }
-    val rememberScroll = rememberScrollState()
+  var alignment by remember { mutableStateOf(0f) }
+  val rememberScroll = rememberScrollState()
 
-    Column {
-        BionicTextViewer(
-            textAlign = textAlignList[alignment.toInt()],
-            modifier = Modifier.padding(16.dp),
-            fixationSize = fixationFontSize.sp,
-            fixationOpacity = fixationOpacity,
-            fixationBoldness = fontWeightList[fixationFontWeight.toInt()],
-            nonFixationSize = nonFixationFontSize.sp,
-            nonFixationOpacity = nonFixationOpacity,
-            nonFixationBoldness = fontWeightList.reversed()[nonFixationFontWeight.toInt()] )
+  Column {
+    BionicTextViewer(
+      textAlign = textAlignList[alignment.toInt()],
+      modifier = Modifier.padding(16.dp),
+      fixationSize = fixationFontSize.sp,
+      fixationOpacity = fixationOpacity,
+      fixationBoldness = fontWeightList[fixationFontWeight.toInt()],
+      nonFixationSize = nonFixationFontSize.sp,
+      nonFixationOpacity = nonFixationOpacity,
+      nonFixationBoldness = fontWeightList.reversed()[nonFixationFontWeight.toInt()],
+    )
 
-        Column(modifier = Modifier
-            .verticalScroll(rememberScroll)
-            .padding(start = 20.dp, bottom = 25.dp, end = 20.dp)) {
+    Column(
+      modifier = Modifier
+        .verticalScroll(rememberScroll)
+        .padding(start = 20.dp, bottom = 25.dp, end = 20.dp),
+    ) {
+      SliderTemplate(
+        title = "Alignment: ${textAlignList[alignment.toInt()]}",
+        value = alignment,
+        onValueChange = { alignment = it },
+        valueRange = 0f..textAlignList.size.toFloat() - 1,
+        steps = textAlignList.size - 2,
+      )
 
-            SliderTemplate(
-                title = "Alignment: ${textAlignList[alignment.toInt()]}",
-                value = alignment,
-                onValueChange = { alignment = it },
-                valueRange = 0f..textAlignList.size.toFloat() - 1,
-                steps = textAlignList.size - 2 )
+      SliderTemplate(
+        title = "Fixation Opacity: $fixationOpacity",
+        value = fixationOpacity,
+        onValueChange = { fixationOpacity = it },
+        valueRange = 0f..1f,
+        steps = 10,
+      )
 
-            SliderTemplate(
-                title = "Fixation Opacity: $fixationOpacity",
-                value = fixationOpacity,
-                onValueChange = { fixationOpacity = it },
-                valueRange = 0f..1f,
-                steps = 10 )
+      SliderTemplate(
+        title = "Fixation FontSize: ${fixationFontSize.sp}",
+        value = fixationFontSize,
+        onValueChange = { fixationFontSize = it },
+        valueRange = 0f..50f,
+        steps = 10,
+      )
 
-            SliderTemplate(
-                title = "Fixation FontSize: ${fixationFontSize.sp}",
-                value = fixationFontSize,
-                onValueChange = { fixationFontSize = it },
-                valueRange = 0f..50f,
-                steps = 10 )
+      SliderTemplate(
+        title = "Fixation FontWeight: ${fontWeightList[fixationFontWeight.toInt()].weight}",
+        value = fixationFontWeight,
+        onValueChange = { fixationFontWeight = it },
+        valueRange = 0f..fontWeightList.size.toFloat() - 1,
+        steps = fontWeightList.size - 2,
+      )
+      SliderTemplate(
+        title = "NonFixation Opacity: $nonFixationOpacity",
+        value = nonFixationOpacity,
+        onValueChange = { nonFixationOpacity = it },
+        valueRange = 0f..1f,
+        steps = 10,
+      )
 
-            SliderTemplate(
-                title = "Fixation FontWeight: ${fontWeightList[fixationFontWeight.toInt()].weight}",
-                value = fixationFontWeight,
-                onValueChange = { fixationFontWeight = it },
-                valueRange = 0f..fontWeightList.size.toFloat() - 1,
-                steps = fontWeightList.size - 2
-            )
-            SliderTemplate(
-                title = "NonFixation Opacity: $nonFixationOpacity",
-                value = nonFixationOpacity,
-                onValueChange = { nonFixationOpacity = it },
-                valueRange = 0f..1f,
-                steps = 10 )
+      SliderTemplate(
+        title = "NonFixation FontSize: ${nonFixationFontSize.sp}",
+        value = nonFixationFontSize,
+        onValueChange = { nonFixationFontSize = it },
+        valueRange = 0f..50f,
+        steps = 10,
+      )
 
-            SliderTemplate(
-                title = "NonFixation FontSize: ${nonFixationFontSize.sp}",
-                value = nonFixationFontSize,
-                onValueChange = { nonFixationFontSize = it },
-                valueRange = 0f..50f,
-                steps = 10 )
-
-            SliderTemplate(
-                title = "NonFixation FontWeight: ${fontWeightList.reversed()[nonFixationFontWeight.toInt()].weight}",
-                value = nonFixationFontWeight,
-                onValueChange = { nonFixationFontWeight = it },
-                valueRange = 0f..fontWeightList.size.toFloat() - 1,
-                steps = fontWeightList.size - 2 )
-        }
+      SliderTemplate(
+        title = "NonFixation FontWeight: ${fontWeightList.reversed()[nonFixationFontWeight.toInt()].weight}",
+        value = nonFixationFontWeight,
+        onValueChange = { nonFixationFontWeight = it },
+        valueRange = 0f..fontWeightList.size.toFloat() - 1,
+        steps = fontWeightList.size - 2,
+      )
     }
+  }
 }
 
 @Composable
 fun BionicTextViewer(
-    textAlign: TextAlign,
-    fixationOpacity: Float,
-    fixationBoldness: FontWeight,
-    nonFixationOpacity: Float,
-    nonFixationBoldness: FontWeight,
-    modifier: Modifier = Modifier,
-    highlightFixation: Boolean = false,
-    fixationSize: TextUnit = 35.sp,
-    nonFixationSize: TextUnit = 35.sp
+  textAlign: TextAlign,
+  fixationOpacity: Float,
+  fixationBoldness: FontWeight,
+  nonFixationOpacity: Float,
+  nonFixationBoldness: FontWeight,
+  modifier: Modifier = Modifier,
+  highlightFixation: Boolean = false,
+  fixationSize: TextUnit = 35.sp,
+  nonFixationSize: TextUnit = 35.sp,
 ) {
-    val rememberScroll = rememberScrollState()
-    Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .fillMaxHeight(0.5f)
-    ) {
-        val color = LocalContentColor.current
+  val rememberScroll = rememberScrollState()
+  Card(
+    modifier = modifier
+      .fillMaxWidth()
+      .fillMaxHeight(0.5f),
+  ) {
+    val color = LocalContentColor.current
 
-        Box(modifier = Modifier.verticalScroll(rememberScroll)) {
-            BionicText(
-                text = stringResource(id = R.string.bionic_text_sample),
-                textAlign = textAlign,
-                modifier = Modifier.padding(16.dp),
-                fixationStyle = SpanStyle(
-                    color = color.copy(alpha = fixationOpacity),
-                    fontWeight = fixationBoldness,
-                    fontSize = fixationSize,
-                    background = if (highlightFixation) Color.Yellow.copy(alpha = 0.1f) else Color.Unspecified
-                ),
-                nonFixationStyle = SpanStyle(
-                    color = color.copy(alpha = nonFixationOpacity),
-                    fontWeight = nonFixationBoldness,
-                    fontSize = nonFixationSize
-                )
-            )
-        }
+    Box(modifier = Modifier.verticalScroll(rememberScroll)) {
+      BionicText(
+        text = stringResource(id = R.string.bionic_text_sample),
+        textAlign = textAlign,
+        modifier = Modifier.padding(16.dp),
+        fixationStyle = SpanStyle(
+          color = color.copy(alpha = fixationOpacity),
+          fontWeight = fixationBoldness,
+          fontSize = fixationSize,
+          background = if (highlightFixation) Color.Yellow.copy(alpha = 0.1f) else Color.Unspecified,
+        ),
+        nonFixationStyle = SpanStyle(
+          color = color.copy(alpha = nonFixationOpacity),
+          fontWeight = nonFixationBoldness,
+          fontSize = nonFixationSize,
+        ),
+      )
     }
+  }
 }
 
 @Composable
 fun SliderTemplate(
-    title: String,
-    value: Float,
-    onValueChange: (Float) -> Unit,
-    valueRange: ClosedFloatingPointRange<Float>,
-    steps: Int,
-    modifier: Modifier = Modifier,
-    sliderModifier: Modifier = Modifier,
-    textModifier: Modifier = Modifier,
+  title: String,
+  value: Float,
+  onValueChange: (Float) -> Unit,
+  valueRange: ClosedFloatingPointRange<Float>,
+  steps: Int,
+  modifier: Modifier = Modifier,
+  sliderModifier: Modifier = Modifier,
+  textModifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .padding(18.dp)
-    ) {
-        Text(
-            text = title,
-            modifier = textModifier,
-            style = MaterialTheme.typography.titleLarge
-        )
-        Slider(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = sliderModifier,
-            valueRange = valueRange,
-            steps = steps,
-        )
-    }
+  Column(
+    modifier = modifier
+      .padding(18.dp),
+  ) {
+    Text(
+      text = title,
+      modifier = textModifier,
+      style = MaterialTheme.typography.titleLarge,
+    )
+    Slider(
+      value = value,
+      onValueChange = onValueChange,
+      modifier = sliderModifier,
+      valueRange = valueRange,
+      steps = steps,
+    )
+  }
 }
