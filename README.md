@@ -1,18 +1,17 @@
 ![banner art](/art/banner%20art%20-%20madifiers.png)
 
-# What is *Madifiers*?
-Madifiers is bunch of pre-made composable, modifiers, extension functions etc...
-Basically Anything and everything to make jetpack compose development easy and straight forward
+# What is Madifiers?
+Madifiers are a bunch of pre-made modifiers *(get it?)*, composables, extension functions and so on with an aim to make development with Jetpack Compose easier and more straightforward.
 
 # Libraries
 ## [Bionic Text](/madifiers-text/bionicText) - ![Maven Central](https://img.shields.io/maven-central/v/pro.jayeshseth.madifiers/windowUtils?style=flat-square)
-applies bionic reading affect on text
+Applies [bionic reading](https://bionic-reading.com/) effect to text.
 
 ## [AnimateTextUnitAsState](/madifiers-text/animateTextUnitAsState) - ![Maven Central](https://img.shields.io/maven-central/v/pro.jayeshseth.madifiers/animateTextUnitAsState?style=flat-square)
-animates text units like `sp` and `em` to the provided target value
+Interpolates text units like `sp` and `em` to the provided target value.
 
 ## [Window Util](/madifiers-window/windowUtils) - ![Maven Central](https://img.shields.io/maven-central/v/pro.jayeshseth.madifiers/windowUtils?style=flat-square)
-window utils to get usable screen height, width and more in `dp` and `px`
+Window utils to get usable screen height, width and more in `dp` and `px`.
 
 # Project Structure
 ```
@@ -34,20 +33,20 @@ Madifiers                         # Root Project
 ```
 
 # Blog 
-You can check out how madifiers came to life and make your own single or multi module library
-for android and publish it to maven central here(coming soon)
+Learn more about how Madifiers came to life, create your own single or multi-module library for Android, and publish it effortlessly to Maven Central!
+*(Coming soon)*
 
 # How & Why "Madifiers"?
-On **June 5th, 2021** while learning about "modifiers" in jetpack compose, I had a thought that the 
-term "modifiers" could be playfully referred to as **"madifiers"**. This sparked an idea to create a
-library for jetpack compose, which i would name **"Madifiers"**. After discovering libraries like
-[Super Extension](https://github.com/AbhishekDoshi26/super_extensions) by Abhishek Doshi and 
-[VelocityX](https://velocityx.dev/) by pawan kumar, I was inspired to create a library that would include
-a collection of modifiers, extensions and composables which makes jetpack compose development easy and 
-straight forward. Thus, Madifiers was born.
+In June of 2021, while learning about modifiers in Jetpack Compose, I had a thought -- the 
+term "modifiers" could be playfully referred to as **"madifiers"**, which correlates with my internet alias.
+This sparked an idea to create a library for Jetpack Compose, which I would name **Madifiers**. After discovering
+libraries like [Super Extension](https://github.com/AbhishekDoshi26/super_extensions) by Abhishek Doshi and 
+[VelocityX](https://velocityx.dev/) by Pawan Kumar, I was inspired to create a library that would include
+a collection of modifiers, composables, and extension functions, and help make development with Jetpack Compose
+easier and more straightforward. Thus, Madifiers was born.
 
 # Contribution
-Learn about contribution [here](/CONTRIBUTING.md).
+Learn more about contributing [here](/CONTRIBUTING.md).
 
 # License
 ```
