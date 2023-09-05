@@ -1,4 +1,7 @@
 ![banner art](/art/banner%20art%20-%20madifiers.png)
+<p align="center">
+    <a href="https://jetc.dev/issues/180.html"><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23180-blue?logo=Jetpack+Compose&amp;logoColor=white" alt="As Seen In - jetc.dev Newsletter Issue #180"></a>
+</p>
 
 # What is Madifiers?
 Madifiers are a bunch of pre-made modifiers *(get it?)*, composables, extension functions and so on with an aim to make development with Jetpack Compose easier and more straightforward.
@@ -34,7 +37,7 @@ Madifiers                         # Root Project
 
 # Blog 
 Learn more about how Madifiers came to life, create your own single or multi-module library for Android, and publish it effortlessly to Maven Central!
-*(Coming soon)*
+[here](https://blog.realogs.in/build-and-publish-multi-module-android-library-to-maven-central/)
 
 # How & Why "Madifiers"?
 In June of 2021, while learning about modifiers in Jetpack Compose, I had a thought -- the 
