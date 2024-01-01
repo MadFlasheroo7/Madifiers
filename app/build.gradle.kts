@@ -49,11 +49,12 @@ android {
 }
 
 dependencies {
-    implementation("pro.jayeshseth.madifiers:bionicText:1.0.0")
-//    implementation(project(":madifiers-text:bionicText"))
-    implementation(project(":madifiers-text:animateTextUnitAsState"))
-    implementation(project(":madifiers-text:extensions"))
-    implementation(project(":madifiers-window:windowUtils"))
+    // project modules
+    implementation(projects.madifiersText.bionicText)
+    implementation(projects.madifiersText.animateTextUnitAsState)
+    implementation(projects.madifiersText.extensions)
+    implementation(projects.madifiersWindow.windowUtils)
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.window)
     implementation(libs.core.ktx)
