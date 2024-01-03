@@ -32,7 +32,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
@@ -133,17 +132,5 @@ public fun BionicText(
     maxLines = maxLines,
     minLines = minLines,
     inlineContent = inlineContent,
-  )
-}
-
-@Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
-@Composable
-public fun PreviewBionicText() {
-  val string = "Animations can be a powerful tool for creating engaging and interactive user " +
-    "interfaces. With Jetpack Compose, creating animations has become easier than ever. In " +
-    "this blog post, we'll walk through the basics of using animations in Jetpack Compose " +
-    "and explore some examples to get you started."
-  BionicText(
-    text = string,
   )
 }

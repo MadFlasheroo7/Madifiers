@@ -31,7 +31,7 @@ rootProject.extra.apply {
 apply(from = "${rootDir}/scripts/publish-module.gradle")
 
 android {
-    namespace = libs.versions.namespace.windowUtils.get().toString()
+    namespace = libs.versions.namespace.windowUtils.get()
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
@@ -43,18 +43,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.core.ktx)
-    implementation(libs.androidx.window)
-    implementation(libs.androidx.activity.compose)
     implementation(platform(libs.compose.bom))
-    implementation(libs.compose.material3)
-    implementation(libs.compose.material3.window)
     implementation(libs.compose.foundation)
-    implementation(libs.compose.runtime)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.graphics)
-    implementation(libs.compose.ui.tooling.preview)
-    debugImplementation(libs.compose.ui.manifest)
-    debugImplementation(libs.compose.ui.tooling)
 }
 

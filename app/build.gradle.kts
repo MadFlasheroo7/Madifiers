@@ -21,15 +21,15 @@ plugins {
 }
 
 android {
-    namespace = libs.versions.namespace.sample.get().toString()
+    namespace = libs.versions.namespace.sample.get()
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
-        applicationId = libs.versions.applicationId.get().toString()
+        applicationId = libs.versions.applicationId.get()
         minSdk = libs.versions.min.sdk.get().toInt()
         targetSdk = libs.versions.target.sdk.get().toInt()
         versionCode = libs.versions.version.code.get().toInt()
-        versionName = libs.versions.version.name.get().toString()
+        versionName = libs.versions.version.name.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -52,7 +52,6 @@ dependencies {
     // project modules
     implementation(projects.madifiersText.bionicText)
     implementation(projects.madifiersText.animateTextUnitAsState)
-    implementation(projects.madifiersText.extensions)
     implementation(projects.madifiersWindow.windowUtils)
 
     implementation(libs.androidx.activity.compose)
