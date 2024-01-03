@@ -13,8 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:SuppressLint("ComposableNaming")
+
 package pro.jayeshseth.windowUtils
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
@@ -28,8 +31,9 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
 /**
- * [ScreenDimensions] returns the screen height and width in [Dp] and [Px]
+ * [ScreenDimensions] returns the screen height and width in [Dp] and Px
  */
+@SuppressLint("ComposableNaming")
 @Composable
 public fun ScreenDimensions(): Dimensions {
   val configuration = LocalConfiguration.current
@@ -47,7 +51,7 @@ public fun ScreenDimensions(): Dimensions {
 }
 
 /**
- * [StatusBars] returns the status bar height in [Dp] and [Px]
+ * [StatusBars] returns the status bar height in [Dp] and Px
  */
 @Composable
 public fun StatusBars(): Dimensions {
@@ -59,7 +63,7 @@ public fun StatusBars(): Dimensions {
 }
 
 /**
- * [NavigationBar] returns the navigation bar height in [Dp] and [Px]
+ * [NavigationBar] returns the navigation bar height in [Dp] and Px
  */
 @Composable
 public fun NavigationBar(): Dimensions {
