@@ -16,8 +16,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 
 plugins {
-    id("madifiers.application.compose")
-    id("madifiers.spotless")
+    alias(libs.plugins.madifiers.application)
 }
 
 android {
@@ -39,7 +38,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -57,7 +56,6 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.window)
     implementation(libs.core.ktx)
-    implementation(platform(libs.compose.bom))
     implementation(libs.compose.material3)
     implementation(libs.compose.material.iconsExtended)
     implementation(libs.compose.material3.window)
@@ -75,6 +73,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.android.test.ext.junit)
 }

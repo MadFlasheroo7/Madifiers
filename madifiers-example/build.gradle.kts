@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 // import version.kt here
 // import pro.jayeshseth.madifiers.Versions
 
 @Suppress("DSL_SCOPE_VIOLATION")
 
 plugins {
-    id("madifiers.library.compose")
-    id("madifiers.spotless")
+    alias(libs.plugins.madifiers.library)
 }
 
 // declare variables for maven here
@@ -43,10 +43,4 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-}
-
-dependencies {
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
 }

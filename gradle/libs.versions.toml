@@ -173,4 +173,10 @@ nexus-plugin = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "ne
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
 
+
+# Plugins defined by this project
+madifiers-library = { id = "madifiers.library", version = "unspecified"}
+madifiers-application = { id = "madifiers.application.compose", version = "unspecified"}
+madifiers-spotless = { id = "madifiers.spotless", version = "unspecified"}
+
 [bundles]

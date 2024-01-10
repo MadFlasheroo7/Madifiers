@@ -29,5 +29,9 @@ gradlePlugin {
             id = "madifiers.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
+        register("madifiersLibrary") {
+            id = "madifiers.library"
+            implementationClass = "MadifiersLibraryConventionPlugin"
+        }
     }
 }

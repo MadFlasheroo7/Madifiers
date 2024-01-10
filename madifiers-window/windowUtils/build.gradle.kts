@@ -18,8 +18,7 @@ import pro.jayeshseth.madifiers.Versions
 @Suppress("DSL_SCOPE_VIOLATION")
 
 plugins {
-    id("madifiers.library.compose")
-    id("madifiers.spotless")
+    alias(libs.plugins.madifiers.library)
 }
 
 rootProject.extra.apply {
@@ -43,7 +42,6 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.compose.bom))
     implementation(libs.compose.foundation)
 }
 

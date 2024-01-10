@@ -18,8 +18,7 @@ import pro.jayeshseth.madifiers.Versions
 @Suppress("DSL_SCOPE_VIOLATION")
 
 plugins {
-    id("madifiers.library.compose")
-    id("madifiers.spotless")
+    alias(libs.plugins.madifiers.library)
 }
 
 rootProject.extra.apply {
@@ -40,10 +39,4 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-}
-
-dependencies {
-    implementation(platform(libs.compose.bom))
-    implementation(libs.compose.material3)
-    implementation(libs.compose.ui)
 }
