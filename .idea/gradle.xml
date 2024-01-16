@@ -34,6 +34,8 @@
             <option value="$PROJECT_DIR$/madifiers-text" />
             <option value="$PROJECT_DIR$/madifiers-text/animateTextUnitAsState" />
             <option value="$PROJECT_DIR$/madifiers-text/bionicText" />
+            <option value="$PROJECT_DIR$/madifiers-utils" />
+            <option value="$PROJECT_DIR$/madifiers-utils/buttons" />
             <option value="$PROJECT_DIR$/madifiers-window" />
             <option value="$PROJECT_DIR$/madifiers-window/windowUtils" />
           </set>

@@ -41,7 +41,7 @@ import androidx.compose.ui.unit.sp
  * @return A [State] object, the value of which is updated by animation.
  */
 @Composable
-public fun animateTextUnitAsState(
+fun animateTextUnitAsState(
   targetValue: TextUnit,
   animationSpec: AnimationSpec<TextUnit> = tween(easing = LinearEasing),
   label: String = "TextUnit Animation",

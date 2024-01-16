@@ -24,6 +24,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 // add your modules here
 include(":madifiers-example")
-include(":madifiers-text:bionicText")
 include(":madifiers-text:animateTextUnitAsState")
+include(":madifiers-text:bionicText")
+include(":madifiers-utils:buttons")
 include(":madifiers-window:windowUtils")

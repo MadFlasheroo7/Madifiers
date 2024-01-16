@@ -52,6 +52,7 @@ dependencies {
     implementation(projects.madifiersText.bionicText)
     implementation(projects.madifiersText.animateTextUnitAsState)
     implementation(projects.madifiersWindow.windowUtils)
+    implementation(projects.madifiersUtils.buttons)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.window)
