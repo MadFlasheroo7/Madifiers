@@ -17,7 +17,7 @@ class AndroidLibraryComposeConventionPlugin: Plugin<Project> {
                 configureKotlinAndroid(this)
 
                 kotlinOptions {
-                    freeCompilerArgs = freeCompilerArgs + listOf("-Xexplicit-api=strict")
+                    freeCompilerArgs = freeCompilerArgs
                 }
             }
         }
