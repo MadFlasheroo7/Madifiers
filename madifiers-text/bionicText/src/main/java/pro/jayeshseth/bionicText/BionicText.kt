@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Jayesh Seth
+ * Copyright 2024 Jayesh Seth
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ import androidx.compose.ui.unit.sp
  * functionality to the text. For example, to draw selection around the text.
  */
 @Composable
-public fun BionicText(
+fun BionicText(
   text: String,
   modifier: Modifier = Modifier,
   fixationStyle: SpanStyle = SpanStyle(fontWeight = FontWeight.W800),
@@ -80,7 +80,7 @@ public fun BionicText(
   fontSize: TextUnit = 16.sp,
   fontFamily: FontFamily? = null,
   color: Color = Color.Unspecified,
-  style: TextStyle = TextStyle(), // Not Using LocalTextStyle to ignore default material styling
+  style: TextStyle = TextStyle(),
   textAlign: TextAlign? = null,
   lineHeight: TextUnit = TextUnit.Unspecified,
   softWrap: Boolean = true,

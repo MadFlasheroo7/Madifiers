@@ -1,0 +1,14 @@
+root = true
+
+[*.{kt,kts}]
+ij_kotlin_allow_trailing_comma=true
+ij_kotlin_allow_trailing_comma_on_call_site=true
+ktlint_standard=disabled
+ktlint_experimental = enabled
+ktlint_function_naming_ignore_when_annotated_with=Composable, Test
+ktlint_standard_no-empty-file=disabled
+ktlint_standard_discouraged-comment-location=disabled
+ktlint_standard_value-argument-comment=disabled
+ktlint_standard_class-signature=disabled
+ktlint_standard_type-argument-comment=disabled
+ktlint_standard_if-else-wrapping=disabled
