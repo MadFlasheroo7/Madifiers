@@ -35,60 +35,60 @@ import androidx.compose.ui.unit.dp
  */
 @SuppressLint("ComposableNaming")
 @Composable
-public fun ScreenDimensions(): Dimensions {
-  val configuration = LocalConfiguration.current
-  val density = LocalDensity.current
+fun ScreenDimensions(): Dimensions {
+    val configuration = LocalConfiguration.current
+    val density = LocalDensity.current
 
-  // Values in Dp
-  val heightInDp = configuration.screenHeightDp.dp
-  val widthInDp = configuration.screenWidthDp.dp
+    // Values in Dp
+    val heightInDp = configuration.screenHeightDp.dp
+    val widthInDp = configuration.screenWidthDp.dp
 
-  // Values in Px
-  val heightInPx = with(density) { heightInDp.roundToPx() }
-  val widthInPx = with(density) { widthInDp.roundToPx() }
+    // Values in Px
+    val heightInPx = with(density) { heightInDp.roundToPx() }
+    val widthInPx = with(density) { widthInDp.roundToPx() }
 
-  return Dimensions(heightInDp, widthInDp, heightInPx, widthInPx)
+    return Dimensions(heightInDp, widthInDp, heightInPx, widthInPx)
 }
 
 /**
  * [StatusBars] returns the status bar height in [Dp] and Px
  */
 @Composable
-public fun StatusBars(): Dimensions {
-  val statusBarSize = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
-  val density = LocalDensity.current
+fun StatusBars(): Dimensions {
+    val statusBarSize = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
+    val density = LocalDensity.current
 
-  val sizeInPx = with(density) { statusBarSize.roundToPx() }
-  return Dimensions(heightInDp = statusBarSize, heightInPx = sizeInPx)
+    val sizeInPx = with(density) { statusBarSize.roundToPx() }
+    return Dimensions(heightInDp = statusBarSize, heightInPx = sizeInPx)
 }
 
 /**
  * [NavigationBar] returns the navigation bar height in [Dp] and Px
  */
 @Composable
-public fun NavigationBar(): Dimensions {
-  val navigationBarSize = WindowInsets.systemBars.asPaddingValues().calculateBottomPadding()
-  val density = LocalDensity.current
+fun NavigationBar(): Dimensions {
+    val navigationBarSize = WindowInsets.systemBars.asPaddingValues().calculateBottomPadding()
+    val density = LocalDensity.current
 
-  val sizeInPx = with(density) { navigationBarSize.roundToPx() }
-  return Dimensions(heightInDp = navigationBarSize, heightInPx = sizeInPx)
+    val sizeInPx = with(density) { navigationBarSize.roundToPx() }
+    return Dimensions(heightInDp = navigationBarSize, heightInPx = sizeInPx)
 }
 
 /**
  * [isGestureNavigation] checks if device is using gesture navigation bar
  */
 @Composable
-public fun isGestureNavigation(): Boolean {
-  val safeGesture =
-    WindowInsets.safeGestures.asPaddingValues().calculateLeftPadding(LayoutDirection.Ltr)
-  return safeGesture != 0.dp
+fun isGestureNavigation(): Boolean {
+    val safeGesture =
+        WindowInsets.safeGestures.asPaddingValues().calculateLeftPadding(LayoutDirection.Ltr)
+    return safeGesture != 0.dp
 }
 
 /**
  * [isInLandscapeMode] checks if device is in landscape orientation
  */
 @Composable
-public fun isInLandscapeMode(): Boolean {
-  val configuration = LocalConfiguration.current
-  return configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+fun isInLandscapeMode(): Boolean {
+    val configuration = LocalConfiguration.current
+    return configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 }

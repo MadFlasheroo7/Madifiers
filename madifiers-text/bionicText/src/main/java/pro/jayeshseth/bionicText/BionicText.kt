@@ -73,64 +73,64 @@ import androidx.compose.ui.unit.sp
  */
 @Composable
 fun BionicText(
-  text: String,
-  modifier: Modifier = Modifier,
-  fixationStyle: SpanStyle = SpanStyle(fontWeight = FontWeight.W800),
-  nonFixationStyle: SpanStyle = SpanStyle(),
-  fontSize: TextUnit = 16.sp,
-  fontFamily: FontFamily? = null,
-  color: Color = Color.Unspecified,
-  style: TextStyle = TextStyle(),
-  textAlign: TextAlign? = null,
-  lineHeight: TextUnit = TextUnit.Unspecified,
-  softWrap: Boolean = true,
-  overflow: TextOverflow = TextOverflow.Clip,
-  maxLines: Int = Int.MAX_VALUE,
-  minLines: Int = 1,
-  inlineContent: Map<String, InlineTextContent> = mapOf(),
-  onTextLayout: (TextLayoutResult) -> Unit = {},
+    text: String,
+    modifier: Modifier = Modifier,
+    fixationStyle: SpanStyle = SpanStyle(fontWeight = FontWeight.W800),
+    nonFixationStyle: SpanStyle = SpanStyle(),
+    fontSize: TextUnit = 16.sp,
+    fontFamily: FontFamily? = null,
+    color: Color = Color.Unspecified,
+    style: TextStyle = TextStyle(),
+    textAlign: TextAlign? = null,
+    lineHeight: TextUnit = TextUnit.Unspecified,
+    softWrap: Boolean = true,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
+    minLines: Int = 1,
+    inlineContent: Map<String, InlineTextContent> = mapOf(),
+    onTextLayout: (TextLayoutResult) -> Unit = {},
 ) {
-  // TODO(improve fixation logic)
-  // TODO(Add saccade)
-  val words = text.split(" ")
-  val formattedWord = buildAnnotatedString {
-    words.forEach { word ->
-      val fixation = word.length / 2 + 1
+    // TODO(improve fixation logic)
+    // TODO(Add saccade)
+    val words = text.split(" ")
+    val formattedWord = buildAnnotatedString {
+        words.forEach { word ->
+            val fixation = word.length / 2 + 1
 
-      withStyle(style = fixationStyle) {
-        append(word.take(fixation))
-      }
+            withStyle(style = fixationStyle) {
+                append(word.take(fixation))
+            }
 
-      withStyle(style = nonFixationStyle) {
-        append(word.drop(fixation) + " ")
-      }
+            withStyle(style = nonFixationStyle) {
+                append(word.drop(fixation) + " ")
+            }
+        }
     }
-  }
 
-  val textColor = color.takeOrElse {
-    style.color.takeOrElse {
-      LocalContentColor.current
+    val textColor = color.takeOrElse {
+        style.color.takeOrElse {
+            LocalContentColor.current
+        }
     }
-  }
 
-  val mergedStyle = style.merge(
-    TextStyle(
-      fontFamily = fontFamily,
-      fontSize = fontSize,
-      color = textColor,
-      textAlign = textAlign,
-      lineHeight = lineHeight,
-    ),
-  )
-  BasicText(
-    text = formattedWord,
-    modifier = modifier,
-    style = mergedStyle,
-    onTextLayout = onTextLayout,
-    overflow = overflow,
-    softWrap = softWrap,
-    maxLines = maxLines,
-    minLines = minLines,
-    inlineContent = inlineContent,
-  )
+    val mergedStyle = style.merge(
+        TextStyle(
+            fontFamily = fontFamily,
+            fontSize = fontSize,
+            color = textColor,
+            textAlign = textAlign,
+            lineHeight = lineHeight,
+        ),
+    )
+    BasicText(
+        text = formattedWord,
+        modifier = modifier,
+        style = mergedStyle,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        minLines = minLines,
+        inlineContent = inlineContent,
+    )
 }

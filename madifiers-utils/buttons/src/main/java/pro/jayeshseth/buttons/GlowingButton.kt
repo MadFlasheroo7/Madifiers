@@ -91,73 +91,73 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun GlowingButton(
-  onClick: () -> Unit,
-  modifier: Modifier = Modifier,
-  colors: GlowingButtonColors = GlowingButtonDefaults.glowingButtonColors(),
-  shape: Shape = GlowingButtonDefaults.shape,
-  spreadRadius: Dp = GlowingButtonDefaults.spreadRadius,
-  glowIntensity: Float = GlowingButtonDefaults.glowIntensity,
-  glowRadius: Dp = GlowingButtonDefaults.glowRadius,
-  onLongClick: () -> Unit = {},
-  onDoubleTap: () -> Unit = {},
-  longClickDescription: String? = null,
-  clickDescription: String? = null,
-  enabled: Boolean = true,
-  border: BorderStroke? = null,
-  glowBorderRadius: Dp = GlowingButtonDefaults.glowBorderRadius,
-  spreadOffset: Offset = GlowingButtonDefaults.spreadOffset,
-  outerPadding: PaddingValues = GlowingButtonDefaults.outerPadding,
-  contentPadding: PaddingValues = GlowingButtonDefaults.contentPadding,
-  interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-  content: @Composable RowScope.() -> Unit,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    colors: GlowingButtonColors = GlowingButtonDefaults.glowingButtonColors(),
+    shape: Shape = GlowingButtonDefaults.shape,
+    spreadRadius: Dp = GlowingButtonDefaults.spreadRadius,
+    glowIntensity: Float = GlowingButtonDefaults.glowIntensity,
+    glowRadius: Dp = GlowingButtonDefaults.glowRadius,
+    onLongClick: () -> Unit = {},
+    onDoubleTap: () -> Unit = {},
+    longClickDescription: String? = null,
+    clickDescription: String? = null,
+    enabled: Boolean = true,
+    border: BorderStroke? = null,
+    glowBorderRadius: Dp = GlowingButtonDefaults.glowBorderRadius,
+    spreadOffset: Offset = GlowingButtonDefaults.spreadOffset,
+    outerPadding: PaddingValues = GlowingButtonDefaults.outerPadding,
+    contentPadding: PaddingValues = GlowingButtonDefaults.contentPadding,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable RowScope.() -> Unit,
 ) {
-  val containerColor = colors.containerColor(enabled).value
-  val contentColor = colors.contentColor(enabled).value
-  val glowColor = colors.glowColor(enabled).value
-  Surface(
-    color = containerColor,
-    contentColor = contentColor,
-    border = border,
-    modifier = modifier
-      .semantics { role = Role.Button }
-      .padding(outerPadding)
-      .glowingShadow(
-        color = glowColor.brightness(glowIntensity),
-        borderRadius = glowBorderRadius,
-        blurRadius = glowRadius,
-        offsetY = spreadOffset.x.dp,
-        offsetX = spreadOffset.y.dp,
-        spread = spreadRadius,
-      )
-      .clip(shape)
-      .combinedClickable(
-        interactionSource = interactionSource,
-        indication = rememberRipple(),
-        enabled = enabled,
-        onClickLabel = clickDescription,
-        role = Role.Button,
-        onLongClickLabel = longClickDescription,
-        onLongClick = onLongClick,
-        onDoubleClick = onDoubleTap,
-        onClick = onClick,
-      ),
-  ) {
-    CompositionLocalProvider(LocalContentColor provides contentColor) {
-      ProvideTextStyle(value = MaterialTheme.typography.labelLarge) {
-        Row(
-          Modifier
-            .defaultMinSize(
-              minWidth = GlowingButtonDefaults.MinWidth,
-              minHeight = GlowingButtonDefaults.MinHeight,
+    val containerColor = colors.containerColor(enabled).value
+    val contentColor = colors.contentColor(enabled).value
+    val glowColor = colors.glowColor(enabled).value
+    Surface(
+        color = containerColor,
+        contentColor = contentColor,
+        border = border,
+        modifier = modifier
+            .semantics { role = Role.Button }
+            .padding(outerPadding)
+            .glowingShadow(
+                color = glowColor.brightness(glowIntensity),
+                borderRadius = glowBorderRadius,
+                blurRadius = glowRadius,
+                offsetY = spreadOffset.x.dp,
+                offsetX = spreadOffset.y.dp,
+                spread = spreadRadius,
             )
-            .padding(contentPadding),
-          horizontalArrangement = Arrangement.Center,
-          verticalAlignment = Alignment.CenterVertically,
-          content = content,
-        )
-      }
+            .clip(shape)
+            .combinedClickable(
+                interactionSource = interactionSource,
+                indication = rememberRipple(),
+                enabled = enabled,
+                onClickLabel = clickDescription,
+                role = Role.Button,
+                onLongClickLabel = longClickDescription,
+                onLongClick = onLongClick,
+                onDoubleClick = onDoubleTap,
+                onClick = onClick,
+            ),
+    ) {
+        CompositionLocalProvider(LocalContentColor provides contentColor) {
+            ProvideTextStyle(value = MaterialTheme.typography.labelLarge) {
+                Row(
+                    Modifier
+                        .defaultMinSize(
+                            minWidth = GlowingButtonDefaults.MinWidth,
+                            minHeight = GlowingButtonDefaults.MinHeight,
+                        )
+                        .padding(contentPadding),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                    content = content,
+                )
+            }
+        }
     }
-  }
 }
 
 /**
@@ -165,83 +165,83 @@ fun GlowingButton(
  */
 object GlowingButtonDefaults {
 
-  /**
-   * Default glow radius of [GlowingButton]
-   */
-  val glowRadius = 10.dp
+    /**
+     * Default glow radius of [GlowingButton]
+     */
+    val glowRadius = 10.dp
 
-  /**
-   * Default shape of [GlowingButton]
-   */
-  val shape: Shape = RoundedCornerShape(50.dp)
+    /**
+     * Default shape of [GlowingButton]
+     */
+    val shape: Shape = RoundedCornerShape(50.dp)
 
-  /**
-   * Default glow border radius of [GlowingButton]
-   */
-  val glowBorderRadius = 50.dp
+    /**
+     * Default glow border radius of [GlowingButton]
+     */
+    val glowBorderRadius = 50.dp
 
-  /**
-   * Default glow intensity of [GlowingButton]
-   */
-  val glowIntensity = 0.5f
+    /**
+     * Default glow intensity of [GlowingButton]
+     */
+    val glowIntensity = 0.5f
 
-  /**
-   * Default offset of [GlowingButton]
-   */
-  val spreadOffset = Offset(0f, 0f)
+    /**
+     * Default offset of [GlowingButton]
+     */
+    val spreadOffset = Offset(0f, 0f)
 
-  /**
-   * Default spread radius of [GlowingButton]
-   */
-  val spreadRadius = 10.dp
+    /**
+     * Default spread radius of [GlowingButton]
+     */
+    val spreadRadius = 10.dp
 
-  /**
-   * Default padding applied to the content in [GlowingButton]
-   */
-  val contentPadding = PaddingValues(16.dp)
+    /**
+     * Default padding applied to the content in [GlowingButton]
+     */
+    val contentPadding = PaddingValues(16.dp)
 
-  /**
-   * Default padding applied to [GlowingButton]
-   */
-  val outerPadding = PaddingValues(16.dp)
+    /**
+     * Default padding applied to [GlowingButton]
+     */
+    val outerPadding = PaddingValues(16.dp)
 
-  /**
-   * The default min width applied to [GlowingButton]. Note that you can override it by applying
-   * Modifier.widthIn directly on the button composable.
-   */
-  val MinWidth = 58.dp
+    /**
+     * The default min width applied to [GlowingButton]. Note that you can override it by applying
+     * Modifier.widthIn directly on the button composable.
+     */
+    val MinWidth = 58.dp
 
-  /**
-   * The default min height applied to [GlowingButton]. Note that you can override it by applying
-   * Modifier.heightIn directly on the button composable.
-   */
-  val MinHeight = 40.dp
+    /**
+     * The default min height applied to [GlowingButton]. Note that you can override it by applying
+     * Modifier.heightIn directly on the button composable.
+     */
+    val MinHeight = 40.dp
 
-  /**
-   * Creates [GlowingButtonColors] that represents default colors used in [GlowingButton]
-   *
-   * @param containerColor color applied to the container when enabled
-   * @param contentColor color applied to the content when enabled
-   * @param containerGlowIntensity glow intensity applied to the container
-   * @param glowColor color applied to the glow
-   * @param disabledContainerColor color applied to the container when disabled
-   * @param disabledContentColor color applied to the content when disabled
-   */
-  @Composable
-  fun glowingButtonColors(
-    containerColor: Color = MaterialTheme.colorScheme.primary,
-    contentColor: Color = MaterialTheme.colorScheme.onPrimary,
-    containerGlowIntensity: Float = 0f,
-    glowColor: Color = containerColor,
-    disabledContainerColor: Color = Color.LightGray,
-    disabledContentColor: Color = Color.White,
-  ) = GlowingButtonColors(
-    containerColor = containerColor.brightness(containerGlowIntensity),
-    contentColor = contentColor,
-    glowColor = glowColor,
-    disabledContainerColor = disabledContainerColor,
-    disabledContentColor = disabledContentColor,
-  )
+    /**
+     * Creates [GlowingButtonColors] that represents default colors used in [GlowingButton]
+     *
+     * @param containerColor color applied to the container when enabled
+     * @param contentColor color applied to the content when enabled
+     * @param containerGlowIntensity glow intensity applied to the container
+     * @param glowColor color applied to the glow
+     * @param disabledContainerColor color applied to the container when disabled
+     * @param disabledContentColor color applied to the content when disabled
+     */
+    @Composable
+    fun glowingButtonColors(
+        containerColor: Color = MaterialTheme.colorScheme.primary,
+        contentColor: Color = MaterialTheme.colorScheme.onPrimary,
+        containerGlowIntensity: Float = 0f,
+        glowColor: Color = containerColor,
+        disabledContainerColor: Color = Color.LightGray,
+        disabledContentColor: Color = Color.White,
+    ) = GlowingButtonColors(
+        containerColor = containerColor.brightness(containerGlowIntensity),
+        contentColor = contentColor,
+        glowColor = glowColor,
+        disabledContainerColor = disabledContainerColor,
+        disabledContentColor = disabledContentColor,
+    )
 }
 
 /**
@@ -249,58 +249,58 @@ object GlowingButtonDefaults {
  */
 @Immutable
 class GlowingButtonColors internal constructor(
-  private val containerColor: Color,
-  private val contentColor: Color,
-  private val glowColor: Color,
-  private val disabledContainerColor: Color,
-  private val disabledContentColor: Color,
+    private val containerColor: Color,
+    private val contentColor: Color,
+    private val glowColor: Color,
+    private val disabledContainerColor: Color,
+    private val disabledContentColor: Color,
 ) {
 
-  /**
-   * Default container color
-   */
-  @Composable
-  internal fun containerColor(enabled: Boolean): State<Color> {
-    return rememberUpdatedState(if (enabled) containerColor else disabledContainerColor)
-  }
+    /**
+     * Default container color
+     */
+    @Composable
+    internal fun containerColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(if (enabled) containerColor else disabledContainerColor)
+    }
 
-  /**
-   * Default content color
-   */
-  @Composable
-  internal fun contentColor(enabled: Boolean): State<Color> {
-    return rememberUpdatedState(if (enabled) contentColor else disabledContentColor)
-  }
+    /**
+     * Default content color
+     */
+    @Composable
+    internal fun contentColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(if (enabled) contentColor else disabledContentColor)
+    }
 
-  /**
-   * Default glow color and [Color.Transparent] to represent disabled state
-   */
-  @Composable
-  internal fun glowColor(enabled: Boolean): State<Color> {
-    return rememberUpdatedState(if (enabled) glowColor else Color.Transparent)
-  }
+    /**
+     * Default glow color and [Color.Transparent] to represent disabled state
+     */
+    @Composable
+    internal fun glowColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(if (enabled) glowColor else Color.Transparent)
+    }
 
-  override fun equals(other: Any?): Boolean {
-    if (this === other) return true
-    if (other == null || other !is GlowingButtonColors) return false
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || other !is GlowingButtonColors) return false
 
-    if (containerColor != other.containerColor) return false
-    if (contentColor != other.contentColor) return false
-    if (glowColor != other.glowColor) return false
-    if (disabledContainerColor != other.disabledContainerColor) return false
-    if (disabledContentColor != other.disabledContentColor) return false
+        if (containerColor != other.containerColor) return false
+        if (contentColor != other.contentColor) return false
+        if (glowColor != other.glowColor) return false
+        if (disabledContainerColor != other.disabledContainerColor) return false
+        if (disabledContentColor != other.disabledContentColor) return false
 
-    return true
-  }
+        return true
+    }
 
-  override fun hashCode(): Int {
-    var result = containerColor.hashCode()
-    result = 31 * result + contentColor.hashCode()
-    result = 31 * result + glowColor.hashCode()
-    result = 31 * result + disabledContainerColor.hashCode()
-    result = 31 * result + disabledContentColor.hashCode()
-    return result
-  }
+    override fun hashCode(): Int {
+        var result = containerColor.hashCode()
+        result = 31 * result + contentColor.hashCode()
+        result = 31 * result + glowColor.hashCode()
+        result = 31 * result + disabledContainerColor.hashCode()
+        result = 31 * result + disabledContentColor.hashCode()
+        return result
+    }
 }
 
 /**
@@ -309,17 +309,17 @@ class GlowingButtonColors internal constructor(
  * @param amount brightness intensity of the color ranges from **-1f(darker)** to **1f(brightest)**
  */
 fun Color.brightness(amount: Float = 0.1f): Color {
-  val red = this.red
-  val green = this.green
-  val blue = this.blue
-  val alpha = this.alpha
-  val colorSpace = this.colorSpace
+    val red = this.red
+    val green = this.green
+    val blue = this.blue
+    val alpha = this.alpha
+    val colorSpace = this.colorSpace
 
-  val brightenedRed = (red * (1f + amount)).coerceIn(0f, 1f)
-  val brightenedGreen = (green * (1f + amount)).coerceIn(0f, 1f)
-  val brightenedBlue = (blue * (1f + amount)).coerceIn(0f, 1f)
+    val brightenedRed = (red * (1f + amount)).coerceIn(0f, 1f)
+    val brightenedGreen = (green * (1f + amount)).coerceIn(0f, 1f)
+    val brightenedBlue = (blue * (1f + amount)).coerceIn(0f, 1f)
 
-  return Color(brightenedRed, brightenedGreen, brightenedBlue, alpha, colorSpace)
+    return Color(brightenedRed, brightenedGreen, brightenedBlue, alpha, colorSpace)
 }
 
 /**
@@ -333,37 +333,37 @@ fun Color.brightness(amount: Float = 0.1f): Color {
  * @param spread spread radius of the shadow
  */
 fun Modifier.glowingShadow(
-  color: Color,
-  borderRadius: Dp = 0.dp,
-  blurRadius: Dp = 0.dp,
-  offsetX: Dp = 0.dp,
-  offsetY: Dp = 0.dp,
-  spread: Dp = 0.dp,
+    color: Color,
+    borderRadius: Dp = 0.dp,
+    blurRadius: Dp = 0.dp,
+    offsetX: Dp = 0.dp,
+    offsetY: Dp = 0.dp,
+    spread: Dp = 0.dp,
 ): Modifier {
-  return this.drawBehind {
-    this.drawIntoCanvas {
-      val paint = Paint()
-      val frameworkPaint = paint.asFrameworkPaint()
-      val spreadPixel = spread.toPx()
-      val leftPixel = (0f - spreadPixel) + offsetX.toPx()
-      val topPixel = (0f - spreadPixel) + offsetY.toPx()
-      val rightPixel = (this.size.width + spreadPixel)
-      val bottomPixel = (this.size.height + spreadPixel)
+    return this.drawBehind {
+        this.drawIntoCanvas {
+            val paint = Paint()
+            val frameworkPaint = paint.asFrameworkPaint()
+            val spreadPixel = spread.toPx()
+            val leftPixel = (0f - spreadPixel) + offsetX.toPx()
+            val topPixel = (0f - spreadPixel) + offsetY.toPx()
+            val rightPixel = (this.size.width + spreadPixel)
+            val bottomPixel = (this.size.height + spreadPixel)
 
-      if (blurRadius != 0.dp) {
-        frameworkPaint.maskFilter =
-          (BlurMaskFilter(blurRadius.toPx(), BlurMaskFilter.Blur.NORMAL))
-      }
-      frameworkPaint.color = color.toArgb()
-      it.drawRoundRect(
-        left = leftPixel,
-        top = topPixel,
-        right = rightPixel,
-        bottom = bottomPixel,
-        radiusX = borderRadius.toPx(),
-        radiusY = borderRadius.toPx(),
-        paint = paint,
-      )
+            if (blurRadius != 0.dp) {
+                frameworkPaint.maskFilter =
+                    (BlurMaskFilter(blurRadius.toPx(), BlurMaskFilter.Blur.NORMAL))
+            }
+            frameworkPaint.color = color.toArgb()
+            it.drawRoundRect(
+                left = leftPixel,
+                top = topPixel,
+                right = rightPixel,
+                bottom = bottomPixel,
+                radiusX = borderRadius.toPx(),
+                radiusY = borderRadius.toPx(),
+                paint = paint,
+            )
+        }
     }
-  }
 }

@@ -48,26 +48,26 @@ import androidx.compose.ui.graphics.Color
  */
 @Composable
 fun BackButton(
-  onClick: () -> Unit,
-  modifier: Modifier = Modifier,
-  enabled: Boolean = true,
-  colors: IconButtonColors = IconButtonDefaults.iconButtonColors(),
-  iconTint: Color = LocalContentColor.current,
-  interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    colors: IconButtonColors = IconButtonDefaults.iconButtonColors(),
+    iconTint: Color = LocalContentColor.current,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-  IconButton(
-    onClick = onClick,
-    interactionSource = interactionSource,
-    enabled = enabled,
-    colors = colors,
-    modifier = modifier,
-  ) {
-    Icon(
-      imageVector = Icons.Rounded.ArrowBack,
-      contentDescription = "back icon",
-      tint = iconTint,
-    )
-  }
+    IconButton(
+        onClick = onClick,
+        interactionSource = interactionSource,
+        enabled = enabled,
+        colors = colors,
+        modifier = modifier,
+    ) {
+        Icon(
+            imageVector = Icons.Rounded.ArrowBack,
+            contentDescription = "back icon",
+            tint = iconTint,
+        )
+    }
 }
 
 /**
@@ -88,24 +88,24 @@ fun BackButton(
  */
 @Composable
 fun ForwardButton(
-  onClick: () -> Unit,
-  modifier: Modifier = Modifier,
-  enabled: Boolean = true,
-  colors: IconButtonColors = IconButtonDefaults.iconButtonColors(),
-  iconTint: Color = LocalContentColor.current,
-  interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    colors: IconButtonColors = IconButtonDefaults.iconButtonColors(),
+    iconTint: Color = LocalContentColor.current,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-  IconButton(
-    onClick = onClick,
-    interactionSource = interactionSource,
-    enabled = enabled,
-    colors = colors,
-    modifier = modifier,
-  ) {
-    Icon(
-      imageVector = Icons.Rounded.ArrowForward,
-      contentDescription = "back icon",
-      tint = iconTint,
-    )
-  }
+    IconButton(
+        onClick = onClick,
+        interactionSource = interactionSource,
+        enabled = enabled,
+        colors = colors,
+        modifier = modifier,
+    ) {
+        Icon(
+            imageVector = Icons.Rounded.ArrowForward,
+            contentDescription = "back icon",
+            tint = iconTint,
+        )
+    }
 }

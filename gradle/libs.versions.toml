@@ -48,6 +48,7 @@ vanniktechMavenPublish = "0.25.3"
 version-code = "1"
 version-name = "1.0"
 appcompat = "1.6.1"
+shimmer = "1.2.0"
 com-google-android-material-material = "1.11.0"  # X.Y.Z; X = Major, Y = minor, Z = Patch level
 
 [libraries]
@@ -117,6 +118,9 @@ palette = { group = "androidx.palette", name = "palette", version.ref = "palette
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+
+#shimmer
+shimmer = { group = "com.valentinilk.shimmer", name = "compose-shimmer", version.ref = "shimmer"}
 
 # Google
 google-material = { group = "com.google.material", name = "material", version.ref = "material" }
