@@ -33,6 +33,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -40,23 +41,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import pro.jayeshseth.buttons.GlowingButton
 import pro.jayeshseth.buttons.GlowingButtonDefaults
 import pro.jayeshseth.madifiers.ui.composables.SliderTemplate
 
-@Preview(showSystemUi = true)
 @Composable
 fun GlowButtonScreen() {
-    var spreadRadius by remember { mutableStateOf(GlowingButtonDefaults.spreadRadius.value) }
-    var shape by remember { mutableStateOf(50.dp.value) }
-    var glowIntensity by remember { mutableStateOf(GlowingButtonDefaults.glowIntensity) }
-    var glowRadius by remember { mutableStateOf(GlowingButtonDefaults.glowRadius.value) }
+    var spreadRadius by remember { mutableFloatStateOf(GlowingButtonDefaults.spreadRadius.value) }
+    var shape by remember { mutableFloatStateOf(50.dp.value) }
+    var glowIntensity by remember { mutableFloatStateOf(GlowingButtonDefaults.glowIntensity) }
+    var glowRadius by remember { mutableFloatStateOf(GlowingButtonDefaults.glowRadius.value) }
     val enabled = remember { mutableStateOf(true) }
-    var glowBorderRadius by remember { mutableStateOf(GlowingButtonDefaults.glowBorderRadius.value) }
-    var offsetX by remember { mutableStateOf(0f) }
-    var offsetY by remember { mutableStateOf(0f) }
+    var glowBorderRadius by remember { mutableFloatStateOf(GlowingButtonDefaults.glowBorderRadius.value) }
+    var offsetX by remember { mutableFloatStateOf(0f) }
+    var offsetY by remember { mutableFloatStateOf(0f) }
     val context = LocalContext.current
 
     Column(
@@ -85,7 +84,7 @@ fun GlowButtonScreen() {
                 },
                 onDoubleTap = {
                     Toast.makeText(context, "ACTION: Double Tap", Toast.LENGTH_SHORT).show()
-                }
+                },
             ) {
                 Text("Madifiers")
             }
@@ -130,7 +129,7 @@ fun GlowButtonScreen() {
                 value = glowIntensity,
                 onValueChange = { glowIntensity = it },
                 valueRange = -1f..1f,
-                steps = 10,
+                steps = 0,
             )
             SliderTemplate(
                 title = "Glow Radius: ${glowRadius.dp}",
