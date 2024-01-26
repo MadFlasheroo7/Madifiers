@@ -49,6 +49,7 @@ version-code = "1"
 version-name = "1.0"
 appcompat = "1.6.1"
 shimmer = "1.2.0"
+colorPicker = "1.0.7"
 com-google-android-material-material = "1.11.0"  # X.Y.Z; X = Major, Y = minor, Z = Patch level
 
 [libraries]
@@ -92,6 +93,9 @@ compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
 # Core
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 core-splashScreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
+
+# Color Picker
+color-picker = { group = "com.github.skydoves", name = "colorpicker-compose", version.ref = "colorPicker"}
 
 # Coroutines
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
