@@ -18,7 +18,7 @@ plugins {
 }
 
 android {
-    namespace = libs.versions.namespace.buttons.get().toString()
+    namespace = libs.versions.namespace.buttons.get()
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {

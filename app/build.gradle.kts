@@ -54,6 +54,7 @@ dependencies {
     implementation(projects.madifiersWindow.windowUtils)
     implementation(projects.madifiersUtils.buttons)
 
+    implementation(libs.commonmodule)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.window)
     implementation(libs.core.ktx)

@@ -6,6 +6,7 @@ androidx-test-ext-junit = "1.1.5"
 androidx-window = "1.2.0"
 applicationId = "pro.jayeshseth.madifiers"
 coil = "2.5.0"
+commonmodule = "0.0.2"
 compile-sdk = "34"
 compose-bom = "2023.10.01"
 compose-compiler = "1.5.7"
@@ -75,6 +76,7 @@ coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 
 # Compose
+commonmodule = { module = "pro.jayeshseth.madappmodules:commonModules", version.ref = "commonmodule" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }

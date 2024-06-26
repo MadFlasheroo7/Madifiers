@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     includeBuild("build-logic")
@@ -9,17 +10,17 @@ pluginManagement {
         maven(url = "https://plugins.gradle.org/m2/")
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
         maven(url = "https://plugins.gradle.org/m2/")
     }
 }
-
 rootProject.name = "Madifiers"
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
 // add your modules here
