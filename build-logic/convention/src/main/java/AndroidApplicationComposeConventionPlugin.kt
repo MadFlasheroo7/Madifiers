@@ -12,6 +12,7 @@ class AndroidApplicationComposeConventionPlugin: Plugin<Project> {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
                 apply("madifiers.spotless")
+                apply("org.jetbrains.kotlin.plugin.compose")
             }
 
             extensions.configure<BaseAppModuleExtension> {

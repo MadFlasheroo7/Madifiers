@@ -6,11 +6,12 @@ import pro.jayeshseth.madifiers.convention.configureAndroidCompose
 import pro.jayeshseth.madifiers.convention.configureKotlinAndroid
 import pro.jayeshseth.madifiers.convention.kotlinOptions
 
-class AndroidLibraryComposeConventionPlugin: Plugin<Project> {
+class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply("com.android.library")
             pluginManager.apply("org.jetbrains.kotlin.android")
+            pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
 
             extensions.configure<LibraryExtension> {
                 configureAndroidCompose(this)
