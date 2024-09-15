@@ -28,12 +28,12 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
@@ -132,7 +132,7 @@ fun GlowingButton(
             .clip(shape)
             .combinedClickable(
                 interactionSource = interactionSource,
-                indication = rememberRipple(),
+                indication = ripple(color = Color.Red),
                 enabled = enabled,
                 onClickLabel = clickDescription,
                 role = Role.Button,
