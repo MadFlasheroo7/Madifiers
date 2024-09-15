@@ -18,6 +18,7 @@ package pro.jayeshseth.bionicText
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -118,7 +119,7 @@ fun BionicText(
             fontFamily = fontFamily,
             fontSize = fontSize,
             color = textColor,
-            textAlign = textAlign,
+            textAlign = textAlign ?: TextAlign.Unspecified,
             lineHeight = lineHeight,
         ),
     )
