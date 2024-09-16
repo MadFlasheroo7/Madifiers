@@ -132,7 +132,7 @@ fun GlowingButton(
             .clip(shape)
             .combinedClickable(
                 interactionSource = interactionSource,
-                indication = ripple(color = Color.Red),
+                indication = ripple(),
                 enabled = enabled,
                 onClickLabel = clickDescription,
                 role = Role.Button,
