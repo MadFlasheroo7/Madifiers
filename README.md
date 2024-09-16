@@ -31,6 +31,9 @@ Madifiers                         # Root Project
 │   ├── bionicText                # applies bionic reading affect on text 
 │   ├── extensions                # TODO
 │
+├── madifiers-utils               # directory for all utility functions
+│   ├── buttons                   # contains all custom buttons like back and glow
+│
 ├── madifiers-window              # directory for window related modules 
 │   ├── windowUtils               # window utils to get usable screen height, width and more in dp and px 
 ```
@@ -53,7 +56,7 @@ Learn more about contributing [here](/CONTRIBUTING.md).
 
 # License
 ```
-Copyright 2023 Jayesh Seth
+Copyright 2024 Jayesh Seth
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
