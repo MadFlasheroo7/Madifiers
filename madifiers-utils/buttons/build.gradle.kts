@@ -1,3 +1,5 @@
+import pro.jayeshseth.madifiers.Versions
+
 /*
  * Copyright 2024 Jayesh Seth
  *
@@ -16,6 +18,14 @@
 plugins {
     alias(libs.plugins.madifiers.library)
 }
+
+rootProject.extra.apply {
+    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
+    set("PUBLISH_ARTIFACT_ID", "madButtons")
+    set("PUBLISH_VERSION", Versions.MAD_BUTTONS)
+}
+
+apply(from = "${rootDir}/scripts/publish-module.gradle")
 
 android {
     namespace = libs.versions.namespace.buttons.get()
