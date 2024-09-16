@@ -15,13 +15,14 @@
  */
 package pro.jayeshseth.madifiers.ui.screens
 
-import  android.widget.Toast
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +39,7 @@ import pro.jayeshseth.buttons.GlowingButton
 @Composable
 fun ButtonsScreen(navigateToGlow: () -> Unit) {
     val context = LocalContext.current
-    Column {
+    Column(Modifier.systemBarsPadding()) {
         Text(
             text = "Directional Button",
             style = MaterialTheme.typography.titleLarge,

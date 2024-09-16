@@ -18,6 +18,7 @@ package pro.jayeshseth.madifiers.ui.screens
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
@@ -36,7 +37,7 @@ import pro.jayeshseth.windowUtils.isInLandscapeMode
 @Composable
 fun WindowInfoScreen() {
     Column(
-        modifier = Modifier.verticalScroll(rememberScrollState()),
+        modifier = Modifier.verticalScroll(rememberScrollState()).systemBarsPadding(),
     ) {
         InfoTemplate(
             title = "Screen Height x Width - Dp",

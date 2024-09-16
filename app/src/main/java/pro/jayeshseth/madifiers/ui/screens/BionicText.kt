@@ -19,9 +19,13 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
@@ -76,7 +80,9 @@ fun BionicTextScreen() {
     val rememberScroll = rememberScrollState()
 
     Column(
-        modifier = Modifier.padding(horizontal = 16.dp),
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+            .windowInsetsPadding(WindowInsets.statusBars),
     ) {
         BionicTextViewer(
             textAlign = textAlignList[alignment.toInt()],
@@ -93,7 +99,8 @@ fun BionicTextScreen() {
             modifier = Modifier
                 .padding(top = 16.dp)
                 .animateContentSize()
-                .verticalScroll(rememberScroll),
+                .verticalScroll(rememberScroll)
+                .navigationBarsPadding(),
         ) {
             SliderTemplate(
                 title = "Alignment: ${textAlignList[alignment.toInt()]}",
