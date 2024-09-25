@@ -17,8 +17,7 @@ package pro.jayeshseth.buttons
 
 import android.graphics.BlurMaskFilter
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -65,21 +64,13 @@ import androidx.compose.ui.unit.dp
  * @param onClick called when this button is clicked.
  * @param modifier the [Modifier] to be applied to this button.
  * @param colors [GlowingButtonColors] that will be used to resolve the colors used for this button.
+ * @param glowConfigurations [GlowConfigurations] configurations to control glow effect of the button.
  * @param shape shape of button.
- * @param spreadRadius spread radius of the glow effect.
- * @param glowIntensity glow intensity of the glow effect for glow effect of container check out
- * [GlowingButtonDefaults.glowingButtonColors].
- * @param glowRadius radius of the glow effect.
- * @param onLongClick called when this button is long clicked.
- * @param onDoubleTap called when this button is double tapped.
- * @param longClickDescription description of the long click action.
  * @param clickDescription description of the click action.
  * @param enabled controls the enabled state of this button. When `false`, this component will
  * not respond to user input, and it will appear visually disabled and disabled to accessibility
  * services.
  * @param border the border to draw around the container of this button.
- * @param glowBorderRadius border radius of the glow effect.
- * @param spreadOffset spread offset of the glow effect.
  * @param outerPadding padding applied out of the container.
  * @param contentPadding the spacing values to apply internally between the container and the
  * content.
@@ -88,24 +79,16 @@ import androidx.compose.ui.unit.dp
  * [Interaction]s and customize the appearance / behavior of this button in different states.
  * @param content content to be displayed in this button, usually a [Text]
  */
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun GlowingButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     colors: GlowingButtonColors = GlowingButtonDefaults.glowingButtonColors(),
+    glowConfigurations: GlowConfigurations = GlowingButtonDefaults.glowConfigurations(),
     shape: Shape = GlowingButtonDefaults.shape,
-    spreadRadius: Dp = GlowingButtonDefaults.spreadRadius,
-    glowIntensity: Float = GlowingButtonDefaults.glowIntensity,
-    glowRadius: Dp = GlowingButtonDefaults.glowRadius,
-    onLongClick: () -> Unit = {},
-    onDoubleTap: () -> Unit = {},
-    longClickDescription: String? = null,
     clickDescription: String? = null,
     enabled: Boolean = true,
     border: BorderStroke? = null,
-    glowBorderRadius: Dp = GlowingButtonDefaults.glowBorderRadius,
-    spreadOffset: Offset = GlowingButtonDefaults.spreadOffset,
     outerPadding: PaddingValues = GlowingButtonDefaults.outerPadding,
     contentPadding: PaddingValues = GlowingButtonDefaults.contentPadding,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -122,23 +105,20 @@ fun GlowingButton(
             .semantics { role = Role.Button }
             .padding(outerPadding)
             .glowingShadow(
-                color = glowColor.brightness(glowIntensity),
-                borderRadius = glowBorderRadius,
-                blurRadius = glowRadius,
-                offsetY = spreadOffset.x.dp,
-                offsetX = spreadOffset.y.dp,
-                spread = spreadRadius,
+                color = glowColor.brightness(glowConfigurations.glowIntensity),
+                borderRadius = glowConfigurations.glowBorderRadius,
+                blurRadius = glowConfigurations.glowRadius,
+                offsetY = glowConfigurations.spreadOffset.x.dp,
+                offsetX = glowConfigurations.spreadOffset.y.dp,
+                spread = glowConfigurations.spreadRadius,
             )
             .clip(shape)
-            .combinedClickable(
+            .clickable(
                 interactionSource = interactionSource,
                 indication = ripple(),
                 enabled = enabled,
                 onClickLabel = clickDescription,
                 role = Role.Button,
-                onLongClickLabel = longClickDescription,
-                onLongClick = onLongClick,
-                onDoubleClick = onDoubleTap,
                 onClick = onClick,
             ),
     ) {
@@ -242,7 +222,84 @@ object GlowingButtonDefaults {
         disabledContainerColor = disabledContainerColor,
         disabledContentColor = disabledContentColor,
     )
+
+    /**
+     * Creates [GlowConfigurations] that represents default glow configurations used in [GlowingButton]
+     *
+     * @param spreadRadius spread radius of the glow effect.
+     * @param spreadOffset spread offset of the glow effect.
+     * @param glowRadius radius of the glow effect.
+     * @param glowIntensity glow intensity of the glow effect for glow effect of container check out
+     * [GlowingButtonDefaults.glowingButtonColors].
+     * @param glowBorderRadius border radius of the glow effect.
+     */
+    @Composable
+    fun glowConfigurations(
+        spreadRadius: Dp = this.spreadRadius,
+        spreadOffset: Offset = this.spreadOffset,
+        glowRadius: Dp = this.glowRadius,
+        glowIntensity: Float = this.glowIntensity,
+        glowBorderRadius: Dp = this.glowBorderRadius,
+    ) = GlowConfigurations(
+        spreadRadius = spreadRadius,
+        spreadOffset = spreadOffset,
+        glowRadius = glowRadius,
+        glowIntensity = glowIntensity,
+        glowBorderRadius = glowBorderRadius,
+    )
 }
+
+/**
+ * Represents the glow configurations used by [GlowingButton]
+ */
+@Immutable
+class GlowConfigurations internal constructor(
+    val spreadRadius: Dp,
+    val spreadOffset: Offset,
+    val glowRadius: Dp,
+    val glowIntensity: Float,
+    val glowBorderRadius: Dp,
+) {
+
+    fun copy(
+        spreadRadius: Dp = this.spreadRadius,
+        spreadOffset: Offset = this.spreadOffset,
+        glowRadius: Dp = this.glowRadius,
+        glowIntensity: Float = this.glowIntensity,
+        glowBorderRadius: Dp = this.glowBorderRadius,
+    ): GlowConfigurations {
+        return GlowConfigurations(
+            spreadRadius = spreadRadius,
+            spreadOffset = spreadOffset,
+            glowRadius = glowRadius,
+            glowIntensity = glowIntensity,
+            glowBorderRadius = glowBorderRadius,
+        )
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || other !is GlowConfigurations) return false
+
+        if (spreadRadius != other.spreadRadius) return false
+        if (spreadOffset != other.spreadOffset) return false
+        if (glowRadius != other.glowRadius) return false
+        if (glowIntensity != other.glowIntensity) return false
+        if (glowBorderRadius != other.glowBorderRadius) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = spreadRadius.hashCode()
+        result = 31 * result + spreadOffset.hashCode()
+        result = 31 * result + glowRadius.hashCode()
+        result = 31 * result + glowIntensity.hashCode()
+        result = 31 * result + glowBorderRadius.hashCode()
+        return result
+    }
+}
+
 
 /**
  * Represents the default color values used by [GlowingButton] in different states
