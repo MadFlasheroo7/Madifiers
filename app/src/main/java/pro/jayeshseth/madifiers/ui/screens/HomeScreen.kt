@@ -15,22 +15,21 @@
  */
 package pro.jayeshseth.madifiers.ui.screens
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import pro.jayeshseth.madifiers.ui.composables.InteractiveButton
+import pro.jayeshseth.commoncomponents.HomeScaffold
+import pro.jayeshseth.commoncomponents.InteractiveButton
+import pro.jayeshseth.commoncomponents.StatusBarAwareThemedColumn
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,29 +39,32 @@ fun HomeScreen(
     navigateToWindowInfo: () -> Unit,
     navigateToButtonsScreen: () -> Unit,
 ) {
-    Column {
-        CenterAlignedTopAppBar(
-            title = {
-                Text(
-                    text = "Madifiers",
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            },
-            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                containerColor = Color.Transparent
-            ),
-        )
-        Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .navigationBarsPadding()
-                .padding(horizontal = 20.dp)
-        ) {
-            InteractiveButton(
-                text = "Bionic Text",
-                onClick = navigateToBionicText,
+    val topBarBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
+    val scrollState = rememberScrollState()
+    HomeScaffold(
+        topAppBarScrollBehavior = topBarBehavior,
+        verticalScrollState = scrollState,
+        title = {
+            Text(
+                text = "Madifiers",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Bold,
             )
+        },
+    ) {
+        StatusBarAwareThemedColumn(
+            modifier = Modifier
+                .padding(it)
+                .navigationBarsPadding(),
+            statusBarColor = Color.Transparent,
+        ) {
+            repeat(50) {
+
+                InteractiveButton(
+                    text = "Bionic Text",
+                    onClick = navigateToBionicText,
+                )
+            }
             InteractiveButton(
                 text = "Animated Text Unit",
                 onClick = navigateToAnimatedTextUnit,
@@ -75,6 +77,7 @@ fun HomeScreen(
                 text = "Mad Buttons",
                 onClick = navigateToButtonsScreen,
             )
+
         }
     }
 }

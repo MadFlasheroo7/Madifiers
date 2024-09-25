@@ -39,8 +39,8 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pro.jayeshseth.animatetextunitasstate.animateTextUnitAsState
+import pro.jayeshseth.commoncomponents.InteractiveButton
 import pro.jayeshseth.commoncomponents.StatusBarAwareThemedColumn
-import pro.jayeshseth.madifiers.ui.composables.InteractiveButton
 
 @Composable
 fun AnimateTextUnitScreen() {
@@ -63,7 +63,9 @@ fun AnimateTextUnitScreen() {
     )
 
     StatusBarAwareThemedColumn(
-        modifier = Modifier.verticalScroll(rememberScrollState()).statusBarsPadding(),
+        modifier = Modifier
+            .verticalScroll(rememberScrollState())
+            .statusBarsPadding(),
     ) {
         TextCard(
             text = "Animate Text - tween",
