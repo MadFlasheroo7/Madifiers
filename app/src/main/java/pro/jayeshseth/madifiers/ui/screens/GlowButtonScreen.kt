@@ -121,20 +121,16 @@ fun GlowButtonScreen() {
         ) {
             GlowingButton(
                 enabled = enabled.value,
-                glowIntensity = glowIntensity,
-                spreadRadius = spreadRadius.dp,
-                glowRadius = glowRadius.dp,
-                glowBorderRadius = glowBorderRadius.dp,
+                glowConfigurations = GlowingButtonDefaults.glowConfigurations(
+                    spreadRadius = spreadRadius.dp,
+                    spreadOffset = Offset(offsetX, offsetY),
+                    glowIntensity = glowIntensity,
+                    glowRadius = glowRadius.dp,
+                    glowBorderRadius = glowBorderRadius.dp,
+                ),
                 shape = RoundedCornerShape(shape.dp),
-                spreadOffset = Offset(offsetX, offsetY),
                 onClick = {
                     Toast.makeText(context, "ACTION: Click", Toast.LENGTH_SHORT).show()
-                },
-                onLongClick = {
-                    Toast.makeText(context, "ACTION: Long Click", Toast.LENGTH_SHORT).show()
-                },
-                onDoubleTap = {
-                    Toast.makeText(context, "ACTION: Double Tap", Toast.LENGTH_SHORT).show()
                 },
                 colors = GlowingButtonDefaults.glowingButtonColors(
                     containerColor = containerColor.value,

@@ -58,13 +58,10 @@ fun HomeScreen(
                 .navigationBarsPadding(),
             statusBarColor = Color.Transparent,
         ) {
-            repeat(50) {
-
-                InteractiveButton(
-                    text = "Bionic Text",
-                    onClick = navigateToBionicText,
-                )
-            }
+            InteractiveButton(
+                text = "Bionic Text",
+                onClick = navigateToBionicText,
+            )
             InteractiveButton(
                 text = "Animated Text Unit",
                 onClick = navigateToAnimatedTextUnit,
@@ -77,7 +74,6 @@ fun HomeScreen(
                 text = "Mad Buttons",
                 onClick = navigateToButtonsScreen,
             )
-
         }
     }
 }

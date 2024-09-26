@@ -261,6 +261,9 @@ class GlowConfigurations internal constructor(
     val glowBorderRadius: Dp,
 ) {
 
+    /**
+     * creates a copy of [GlowConfigurations]. Optionally overriding some of the properties.
+     */
     fun copy(
         spreadRadius: Dp = this.spreadRadius,
         spreadOffset: Offset = this.spreadOffset,
