@@ -49,10 +49,13 @@ android {
 
 dependencies {
     // project modules
+/*
     implementation(projects.madifiersText.bionicText)
     implementation(projects.madifiersText.animateTextUnitAsState)
     implementation(projects.madifiersWindow.windowUtils)
     implementation(projects.madifiersUtils.buttons)
+*/
+    implementation(libs.bundles.madifiers)
 
     implementation(libs.commonmodule)
     implementation(libs.androidx.activity.compose)
