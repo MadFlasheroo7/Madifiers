@@ -25,6 +25,7 @@ import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import pro.jayeshseth.commoncomponents.HomeScaffold
@@ -41,6 +42,7 @@ fun HomeScreen(
 ) {
     val topBarBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
     val scrollState = rememberScrollState()
+    val urlLauncher = LocalUriHandler.current
     HomeScaffold(
         topAppBarScrollBehavior = topBarBehavior,
         verticalScrollState = scrollState,
@@ -73,6 +75,12 @@ fun HomeScreen(
             InteractiveButton(
                 text = "Mad Buttons",
                 onClick = navigateToButtonsScreen,
+            )
+            InteractiveButton(
+                text = "Source Code",
+                onClick = {
+                    urlLauncher.openUri("https://github.com/MadFlasheroo7/Madifiers")
+                },
             )
         }
     }
