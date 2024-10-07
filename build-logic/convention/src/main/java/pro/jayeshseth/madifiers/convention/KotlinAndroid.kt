@@ -11,12 +11,12 @@ internal fun Project.configureKotlinAndroid(
 ) {
     commonExtension.apply {
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+            sourceCompatibility = JavaVersion.VERSION_19
+            targetCompatibility = JavaVersion.VERSION_19
         }
 
         kotlinOptions {
-            jvmTarget = libs.findVersion("jvm-target").get().toString()
+            jvmTarget = "19"
             freeCompilerArgs = freeCompilerArgs + listOf(
                 "-opt-in=kotlin.RequiresOptIn",
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
