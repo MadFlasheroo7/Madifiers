@@ -21,13 +21,18 @@ plugins {
     alias(libs.plugins.madifiers.library)
 }
 
-rootProject.extra.apply {
-    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
-    set("PUBLISH_ARTIFACT_ID", "windowUtils")
-    set("PUBLISH_VERSION", Versions.windowUtils)
-}
+mavenPublishing {
+    val artifactId = "windowUtils"
+    coordinates(
+        groupId = Versions.artifactGroup,
+        artifactId = artifactId,
+        version = Versions.windowUtils
+    )
 
-apply(from = "${rootDir}/scripts/publish-module.gradle")
+    pom {
+        name.set(artifactId)
+    }
+}
 
 android {
     namespace = libs.versions.namespace.windowUtils.get()

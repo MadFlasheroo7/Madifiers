@@ -21,13 +21,18 @@ plugins {
     alias(libs.plugins.madifiers.library)
 }
 
-rootProject.extra.apply {
-    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
-    set("PUBLISH_ARTIFACT_ID", "animateTextUnitAsState")
-    set("PUBLISH_VERSION", Versions.animateTextUnitAsState)
-}
+mavenPublishing {
+    val artifactId = "animateTextUnitAsState"
+    coordinates(
+        groupId = Versions.artifactGroup,
+        artifactId = artifactId,
+        version = Versions.animateTextUnitAsState
+    )
 
-apply(from = "${rootDir}/scripts/publish-module.gradle")
+    pom {
+        name.set(artifactId)
+    }
+}
 
 android {
     namespace = libs.versions.namespace.animateTextUnitAsState.get()

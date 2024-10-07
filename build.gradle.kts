@@ -6,8 +6,6 @@ plugins {
     alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.spotless)
-    alias(libs.plugins.nexus.plugin)
+    alias(libs.plugins.vanniktech.maven.publish)
     alias(libs.plugins.kotlin.jvm) apply false
 }
-
-apply(from = "${rootDir}/scripts/publish-root.gradle")

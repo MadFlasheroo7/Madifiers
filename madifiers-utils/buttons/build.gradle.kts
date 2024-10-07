@@ -19,13 +19,19 @@ plugins {
     alias(libs.plugins.madifiers.library)
 }
 
-rootProject.extra.apply {
-    set("PUBLISH_GROUP_ID", Versions.artifactGroup)
-    set("PUBLISH_ARTIFACT_ID", "madButtons")
-    set("PUBLISH_VERSION", Versions.MAD_BUTTONS)
-}
+mavenPublishing {
+    val artifactId = "madButtons"
+    coordinates(
+        groupId = Versions.artifactGroup,
+        artifactId = artifactId,
+        version = Versions.MAD_BUTTONS
+    )
 
-apply(from = "${rootDir}/scripts/publish-module.gradle")
+    pom {
+        name = artifactId
+        description = "Collection of custom and commonly used buttons."
+    }
+}
 
 android {
     namespace = libs.versions.namespace.buttons.get()

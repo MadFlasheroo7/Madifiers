@@ -14,6 +14,7 @@ class MadifiersLibraryConventionPlugin : Plugin<Project> {
                 apply("madifiers.library.compose")
                 apply("madifiers.spotless")
                 apply("org.jetbrains.kotlin.android")
+                apply("com.vanniktech.maven.publish")
             }
             extensions.configure<LibraryExtension> {
                 configureAndroidCompose(this)
