@@ -18,7 +18,7 @@ import pro.jayeshseth.madifiers.Versions
 @Suppress("DSL_SCOPE_VIOLATION")
 
 plugins {
-    alias(libs.plugins.madifiers.library)
+    alias(libs.plugins.madifiers.android.library)
 }
 
 mavenPublishing {
@@ -26,7 +26,7 @@ mavenPublishing {
     coordinates(
         groupId = Versions.artifactGroup,
         artifactId = artifactId,
-        version = Versions.animateTextUnitAsState
+        version = Versions.animateTextUnitAsState,
     )
 
     pom {

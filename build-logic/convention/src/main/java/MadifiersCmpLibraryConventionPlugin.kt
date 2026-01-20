@@ -14,7 +14,6 @@ class MadifiersCmpLibraryConventionPlugin : Plugin<Project> {
             pluginManager.apply {
                 apply("cmp.library")
                 apply("madifiers.spotless")
-                apply("org.jetbrains.kotlin.android")
                 apply("com.vanniktech.maven.publish")
             }
 

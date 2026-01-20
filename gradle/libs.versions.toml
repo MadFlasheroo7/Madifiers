@@ -1,13 +1,13 @@
 [versions]
 activity-compose = "1.9.2"
-androidGradlePlugin = "8.2.2"
+androidGradlePlugin = "8.13.2"
 androidx-test-ext-junit = "1.2.1"
 androidx-window = "1.3.0"
 applicationId = "pro.jayeshseth.madifiers"
 coil = "2.5.0"
 commonmodule = "0.0.8"
 compile-sdk = "34"
-compose-bom = "2024.09.01"
+compose-bom = "2026.01.00"
 compose-compiler = "1.5.7"
 core-ktx = "1.13.1"
 core-splashscreen = "1.0.1"
@@ -57,7 +57,13 @@ madButtons = "0.0.1"
 windowUtils = "1.0.0"
 jvm-target = "17"
 compose-hot-reload = "1.0.0"
+compose-jetbrains-m3 = "1.9.0"
 compose-multiplatform = "1.10.0"
+material-icons = "1.7.3"
+compose-lifecycle = "2.9.1"
+jetbrains-savedstate = "1.3.1"
+jetbrains-core-bundle = "1.0.1"
+adaptive = "1.2.0-alpha04"
 kotlin-atomic = "0.30.0-beta"
 
 [libraries]
@@ -130,6 +136,20 @@ google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gs
 kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin-bom" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+# Jetbrains Compose
+jetbrains-compose-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "compose-multiplatform" }
+jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
+jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose-jetbrains-m3" }
+jetbrains-compose-material-icons-core = { module = "org.jetbrains.compose.material:material-icons-core", version.ref = "material-icons" }
+jetbrains-compose-material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "material-icons" }
+jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-multiplatform" }
+jetbrains-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
+jetbrains-bundle = { module = "org.jetbrains.androidx.core:core-bundle", version.ref = "jetbrains-core-bundle" }
+jetbrains-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "compose-lifecycle" }
+jetbrains-lifecycle-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "compose-lifecycle" }
+jetbrains-lifecycle-viewmodel-savedstate = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "compose-lifecycle" }
+jetbrains-savedstate = { module = "org.jetbrains.androidx.savedstate:savedstate", version.ref = "jetbrains-savedstate" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
