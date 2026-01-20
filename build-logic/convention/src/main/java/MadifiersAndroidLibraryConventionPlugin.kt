@@ -7,11 +7,11 @@ import pro.jayeshseth.madifiers.convention.configureAndroidCompose
 import pro.jayeshseth.madifiers.convention.configureKotlinAndroid
 import pro.jayeshseth.madifiers.convention.libs
 
-class MadifiersLibraryConventionPlugin : Plugin<Project> {
+class MadifiersAndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply {
-                apply("madifiers.library.compose")
+                apply("android.library.compose")
                 apply("madifiers.spotless")
                 apply("org.jetbrains.kotlin.android")
                 apply("com.vanniktech.maven.publish")

@@ -1,10 +1,9 @@
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import pro.jayeshseth.madifiers.convention.configureAndroidCompose
 import pro.jayeshseth.madifiers.convention.configureKotlinAndroid
-import pro.jayeshseth.madifiers.convention.kotlinOptions
 
 class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -17,9 +16,9 @@ class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
                 configureAndroidCompose(this)
                 configureKotlinAndroid(this)
 
-                kotlinOptions {
-                    freeCompilerArgs = freeCompilerArgs
-                }
+//                kotlinOptions {
+//                    freeCompilerArgs = freeCompilerArgs
+//                }
             }
         }
     }

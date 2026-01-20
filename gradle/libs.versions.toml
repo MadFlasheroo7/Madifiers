@@ -20,7 +20,8 @@ gson = "2.10.1"
 hilt = "2.51.1"
 hilt-ext = "1.1.0"
 junit = "4.13.2"
-kotlin = "2.0.0"
+kotlin = "2.3.0"
+androidTools = "31.12.0"
 kotlin-bom = "1.9.20"
 kotlinxSerializationJson = "1.6.2"
 ksp = "2.0.0-1.0.21"
@@ -31,7 +32,7 @@ min-sdk = "24"
 namespace-animateTextUnitAsState = "pro.jayeshseth.animatetextunitasstate"
 namespace-bionicText = "pro.jayeshseth.bionictext"
 namespace-buttons = "pro.jayeshseth.buttons"
-namespace-sample = "pro.jayeshseth.madifiers"
+namespace-androidApp = "pro.jayeshseth.madifiers"
 namespace-textExtensions = "pro.jayeshseth.textextensions"
 namespace-windowUtils = "pro.jayeshseth.windowutils"
 navigation = "2.8.0"
@@ -54,6 +55,10 @@ bionicText = "1.0.0"
 animatedTextUnit = "1.0.0"
 madButtons = "0.0.1"
 windowUtils = "1.0.0"
+jvm-target = "17"
+compose-hot-reload = "1.0.0"
+compose-multiplatform = "1.10.0"
+kotlin-atomic = "0.30.0-beta"
 
 [libraries]
 # [AndroidX Deps]
@@ -130,6 +135,9 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+compose-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
 
 # [Test Dependencies]
 # Android Tests
@@ -147,6 +155,10 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
 
 [plugins]
+composeHotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "compose-hot-reload" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
@@ -158,11 +170,14 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 nexus-plugin = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPlugin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
+kotlinAtomicfu = { id = "org.jetbrains.kotlinx.atomicfu", version.ref = "kotlin-atomic" }
 
 # Plugins defined by this project
-madifiers-library = { id = "madifiers.library", version = "unspecified" }
-madifiers-application = { id = "madifiers.application.compose", version = "unspecified" }
+madifiers-application = { id = "android.application.compose", version = "unspecified" }
+madifiers-android-library = { id = "madifiers.android.library", version = "unspecified" }
+madifiers-cmp-library = { id = "madifiers.cmp.library", version = "unspecified" }
+madifiers-kmp-library = { id = "madifiers.kmp.library", version = "unspecified" }
 madifiers-spotless = { id = "madifiers.spotless", version = "unspecified" }
 
 [bundles]

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     `kotlin-dsl`
 }
@@ -5,33 +7,68 @@ plugins {
 group = "pro.jayeshseth.madifiers.buildlogic"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_19
-    targetCompatibility = JavaVersion.VERSION_19
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
+    }
 }
 
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.spotless.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
+    compileOnly(libs.android.tools.common)
+    compileOnly(libs.compose.gradlePlugin)
 }
 
 gradlePlugin {
     plugins {
+        /* Spotless */
         register("spotless") {
             id = "madifiers.spotless"
             implementationClass = "SpotlessConventionPlugin"
         }
-        register("androidLibraryCompose") {
-            id = "madifiers.library.compose"
-            implementationClass = "AndroidLibraryComposeConventionPlugin"
+
+        /* Base Internal Plugins */
+        register("androidApplication") {
+            id = "android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
         }
+
         register("androidApplicationCompose") {
-            id = "madifiers.application.compose"
+            id = "android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
-        register("madifiersLibrary") {
-            id = "madifiers.library"
-            implementationClass = "MadifiersLibraryConventionPlugin"
+
+        register("androidLibraryCompose") {
+            id = "android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+
+        register("kmpLibrary") {
+            id = "kmp.library"
+            implementationClass = "KmpLibraryConventionPlugin"
+        }
+
+        register("cmpLibrary") {
+            id = "cmp.library"
+            implementationClass = "CmpLibraryConventionPlugin"
+        }
+
+        /* Shared Module/Library Plugins */
+        register("madifiersAndroidLibrary") {
+            id = "madifiers.android.library"
+            implementationClass = "MadifiersAndroidLibraryConventionPlugin"
+        }
+
+        register("madifiersCmpLibrary") {
+            id = "madifiers.cmp.library"
+            implementationClass = "MadifiersCmpLibraryConventionPlugin"
         }
     }
 }
