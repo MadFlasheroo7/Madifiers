@@ -10,14 +10,15 @@ import java.util.Locale
  * into a package name by replacing colons with dots and converting it to lowercase.
  * It then prepends a base package name (`pro.jayeshseth`) to form the full package name.
  *
- * For example, a project with the path `:feature:home` will be converted to
- * `pro.jayeshseth.feature.home`.
+ * For example, a project with the path `:madifiers-window:windowUtils` will be converted to
+ * `pro.jayeshseth.madifiers.window.windowUtils`.
  *
  * @return The generated package name as a [String].
  */
 fun Project.pathToPackageName(): String {
     val relativePackageName = path
         .replace(':', '.')
+        .replace('-','.')
         .lowercase()
 
     println("pathToPackageName: pro.jayeshseth$relativePackageName")
