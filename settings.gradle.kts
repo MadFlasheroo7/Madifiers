@@ -22,7 +22,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Madifiers"
 
-include(":app")
+include(":composeApp")
 // add your modules here
 include(":madifiers-text:animateTextUnitAsState")
 include(":madifiers-text:bionicText")

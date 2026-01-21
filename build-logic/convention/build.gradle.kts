@@ -60,6 +60,11 @@ gradlePlugin {
             implementationClass = "CmpLibraryConventionPlugin"
         }
 
+        register("cmpApplication") {
+            id = "cmp.application"
+            implementationClass = "CmpApplicationConventionPlugin"
+        }
+
         /* Shared Module/Library Plugins */
         register("madifiersAndroidLibrary") {
             id = "madifiers.android.library"

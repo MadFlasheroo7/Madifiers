@@ -10,7 +10,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("com.android.application")
-                apply("org.jetbrains.kotlin.android")
+                // required when only want to use android as platform
+//                apply("org.jetbrains.kotlin.android")
             }
 
             extensions.configure<ApplicationExtension>() {
