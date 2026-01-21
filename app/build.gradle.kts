@@ -19,43 +19,20 @@ plugins {
     alias(libs.plugins.madifiers.application)
 }
 
-android {
-    namespace = libs.versions.namespace.androidApp.get()
-    compileSdk = libs.versions.compile.sdk.get().toInt()
-
-    defaultConfig {
-        applicationId = libs.versions.applicationId.get()
-        minSdk = libs.versions.min.sdk.get().toInt()
-        targetSdk = libs.versions.target.sdk.get().toInt()
-        versionCode = libs.versions.version.code.get().toInt()
-        versionName = libs.versions.version.name.get()
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-}
-
 dependencies {
     // project modules
-/*
-    implementation(projects.madifiersText.bionicText)
-    implementation(projects.madifiersText.animateTextUnitAsState)
+    /*
+        implementation(projects.madifiersText.bionicText)
+        implementation(projects.madifiersText.animateTextUnitAsState)
+        implementation(projects.madifiersWindow.windowUtils)
+        implementation(projects.madifiersUtils.buttons)
+    */
+    implementation(libs.madifiers.bionicText)
+    implementation(libs.madifiers.animatedTextUnit)
+    implementation(libs.madifiers.madButtons)
     implementation(projects.madifiersWindow.windowUtils)
-    implementation(projects.madifiersUtils.buttons)
-*/
-    implementation(libs.bundles.madifiers)
+//    implementation(libs.madifiers.windowUtils)
+//    implementation(libs.bundles.madifiers)
 
     implementation(libs.commonmodule)
     implementation(libs.androidx.activity.compose)
