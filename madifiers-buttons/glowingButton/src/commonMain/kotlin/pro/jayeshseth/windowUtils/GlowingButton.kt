@@ -1,4 +1,4 @@
-package pro.jayeshseth.glowingButton
+package pro.jayeshseth.windowUtils
 
 /*
  * Copyright 2024 Jayesh Seth

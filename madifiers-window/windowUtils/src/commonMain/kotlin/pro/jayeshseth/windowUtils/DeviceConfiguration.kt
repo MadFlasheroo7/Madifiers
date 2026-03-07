@@ -1,4 +1,4 @@
-package pro.jayeshseth.glowingButton
+package pro.jayeshseth.windowUtils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalDensity

@@ -1,4 +1,4 @@
-package pro.jayeshseth.glowingButton
+package pro.jayeshseth.windowUtils
 
 import android.graphics.BlurMaskFilter
 import androidx.compose.ui.graphics.Paint

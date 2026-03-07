@@ -1,4 +1,4 @@
-package pro.jayeshseth.glowingButton
+package pro.jayeshseth.windowUtils
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.geometry.Offset

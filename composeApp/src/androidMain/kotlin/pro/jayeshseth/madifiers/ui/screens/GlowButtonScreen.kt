@@ -118,9 +118,9 @@ fun GlowButtonScreen() {
                 .fillMaxWidth()
                 .fillMaxHeight(0.5f),
         ) {
-            pro.jayeshseth.glowingButton.GlowingButton(
+            pro.jayeshseth.windowUtils.GlowingButton(
                 enabled = enabled.value,
-                glowConfigurations = pro.jayeshseth.glowingButton.GlowingButtonDefaults.glowConfigurations(
+                glowConfigurations = pro.jayeshseth.windowUtils.GlowingButtonDefaults.glowConfigurations(
                     spreadRadius = spreadRadius.dp,
                     spreadOffset = Offset(offsetX, offsetY),
                     glowIntensity = glowIntensity,
@@ -131,7 +131,7 @@ fun GlowButtonScreen() {
                 onClick = {
                     Toast.makeText(context, "ACTION: Click", Toast.LENGTH_SHORT).show()
                 },
-                colors = pro.jayeshseth.glowingButton.GlowingButtonDefaults.glowingButtonColors(
+                colors = pro.jayeshseth.windowUtils.GlowingButtonDefaults.glowingButtonColors(
                     containerColor = containerColor.value,
                     containerGlowIntensity = buttonGlowIntensity,
                     contentColor = contentColor.value,
