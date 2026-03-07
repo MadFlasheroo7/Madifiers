@@ -52,7 +52,6 @@ import androidx.compose.ui.window.Dialog
 import com.github.skydoves.colorpicker.compose.BrightnessSlider
 import com.github.skydoves.colorpicker.compose.HsvColorPicker
 import com.github.skydoves.colorpicker.compose.rememberColorPickerController
-import pro.jayeshseth.buttons.GlowingButton
 import pro.jayeshseth.buttons.GlowingButtonDefaults
 import pro.jayeshseth.madifiers.ui.composables.SliderTemplate
 
@@ -119,9 +118,9 @@ fun GlowButtonScreen() {
                 .fillMaxWidth()
                 .fillMaxHeight(0.5f),
         ) {
-            GlowingButton(
+            pro.jayeshseth.windowUtils.GlowingButton(
                 enabled = enabled.value,
-                glowConfigurations = GlowingButtonDefaults.glowConfigurations(
+                glowConfigurations = pro.jayeshseth.windowUtils.GlowingButtonDefaults.glowConfigurations(
                     spreadRadius = spreadRadius.dp,
                     spreadOffset = Offset(offsetX, offsetY),
                     glowIntensity = glowIntensity,
@@ -132,7 +131,7 @@ fun GlowButtonScreen() {
                 onClick = {
                     Toast.makeText(context, "ACTION: Click", Toast.LENGTH_SHORT).show()
                 },
-                colors = GlowingButtonDefaults.glowingButtonColors(
+                colors = pro.jayeshseth.windowUtils.GlowingButtonDefaults.glowingButtonColors(
                     containerColor = containerColor.value,
                     containerGlowIntensity = buttonGlowIntensity,
                     contentColor = contentColor.value,

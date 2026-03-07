@@ -5,11 +5,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import pro.jayeshseth.windowUtils.DeviceConfiguration.DESKTOP
-import pro.jayeshseth.windowUtils.DeviceConfiguration.MOBILE_LANDSCAPE
-import pro.jayeshseth.windowUtils.DeviceConfiguration.MOBILE_PORTRAIT
-import pro.jayeshseth.windowUtils.DeviceConfiguration.TABLET_LANDSCAPE
-import pro.jayeshseth.windowUtils.DeviceConfiguration.TABLET_PORTRAIT
 
 /**
  * A Composable function that determines and returns the current [DeviceConfiguration]
