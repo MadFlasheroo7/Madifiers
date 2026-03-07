@@ -1,4 +1,4 @@
-package pro.jayeshseth.windowUtils
+package pro.jayeshseth.glowingButton
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.geometry.Offset
@@ -45,7 +45,6 @@ interface GlowingShadowScope {
     fun canvas(canvas: (Canvas) -> Unit)
 }
 
-
 internal class GlowingShadowScopeImpl : GlowingShadowScope {
     override var blurRadius: Float = 0f
     override var spread: Float = 0f
@@ -76,4 +75,3 @@ internal class GlowingShadowScopeImpl : GlowingShadowScope {
         canvasDrawBlock = null
     }
 }
-

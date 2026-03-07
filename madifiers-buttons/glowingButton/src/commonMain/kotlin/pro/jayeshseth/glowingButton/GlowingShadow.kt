@@ -1,16 +1,7 @@
-package pro.jayeshseth.windowUtils
+package pro.jayeshseth.glowingButton
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
-import androidx.compose.ui.graphics.PaintingStyle
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.addOutline
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
@@ -19,9 +10,6 @@ import androidx.compose.ui.graphics.withSave
 import androidx.compose.ui.node.DrawModifierNode
 import androidx.compose.ui.node.ModifierNodeElement
 import androidx.compose.ui.platform.InspectorInfo
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-
 
 /**
  * Applies a customizable glowing shadow effect behind the content.
@@ -75,8 +63,7 @@ internal data class GlowingShadowElement(
  */
 internal class GlowingShadowNode(
     var block: GlowingShadowScope.() -> Unit,
-) : Modifier.Node(),
-    DrawModifierNode {
+) : Modifier.Node(), DrawModifierNode {
     private val shadowPath = Path()
     override fun ContentDrawScope.draw() {
         drawIntoCanvas { canvas ->
@@ -139,34 +126,3 @@ expect fun Paint.applyBlur(blurRadius: Float)
 expect fun Paint.applySpread(spread: Float)
 
 // TODO add expect actual for android & non android
-
-
-@Preview
-@Composable
-fun SampleCommon() {
-    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
-        Box(
-            modifier = Modifier
-                .size(500.dp)
-                .glowingShadow {
-                    blurRadius = 10f
-                    shape = CutCornerShape(50.dp)
-//                    this.alpha = 0.1f
-                    this.canvas { canvas ->
-                        val customPaint = Paint().apply {
-                            color = Color.White
-                            style = PaintingStyle.Stroke
-                            strokeWidth = 4f
-                        }
-
-                        canvas.drawCircle(
-                            center = Offset(size.width / 2f, size.height / 2f),
-                            radius = (size.width / 2f) + spread,
-                            paint = customPaint,
-                        )
-                    }
-                    color = Color.Cyan
-                },
-        )
-    }
-}

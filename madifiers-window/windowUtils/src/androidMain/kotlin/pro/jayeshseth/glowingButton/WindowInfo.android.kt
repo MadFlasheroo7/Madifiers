@@ -1,4 +1,4 @@
-package pro.jayeshseth.windowUtils
+package pro.jayeshseth.glowingButton
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.WindowInsets

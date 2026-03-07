@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pro.jayeshseth.windowUtils
+package pro.jayeshseth.glowingButton
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.Dp

@@ -1,3 +1,5 @@
+package pro.jayeshseth.glowingButton
+
 /*
  * Copyright 2024 Jayesh Seth
  *
@@ -13,9 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pro.jayeshseth.buttons
-
-import android.graphics.BlurMaskFilter
+import androidx.annotation.FloatRange
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.Interaction
@@ -42,16 +42,13 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -104,14 +101,22 @@ fun GlowingButton(
         modifier = modifier
             .semantics { role = Role.Button }
             .padding(outerPadding)
-            .glowingShadow(
-                color = glowColor.brightness(glowConfigurations.glowIntensity),
-                borderRadius = glowConfigurations.glowBorderRadius,
-                blurRadius = glowConfigurations.glowRadius,
-                offsetY = glowConfigurations.spreadOffset.x.dp,
-                offsetX = glowConfigurations.spreadOffset.y.dp,
-                spread = glowConfigurations.spreadRadius,
-            )
+//            .glowingShadow(
+//                color = glowColor.brightness(glowConfigurations.glowIntensity),
+//                borderRadius = glowConfigurations.glowBorderRadius,
+//                blurRadius = glowConfigurations.glowRadius,
+//                offsetY = glowConfigurations.spreadOffset.x.dp,
+//                offsetX = glowConfigurations.spreadOffset.y.dp,
+//                spread = glowConfigurations.spreadRadius,
+//            )
+            .glowingShadow {
+                color = glowColor.brightness(glowConfigurations.glowIntensity)
+//                borderRadius = glowConfigurations.glowBorderRadius
+                spread = glowConfigurations.spreadRadius.value
+                blurRadius = glowConfigurations.glowRadius.value
+//                offsetX = glowConfigurations.spreadOffset.x.value
+//                offsetY = glowConfigurations.spreadOffset.y.value
+            }
             .clip(shape)
             .clickable(
                 interactionSource = interactionSource,
@@ -137,6 +142,14 @@ fun GlowingButton(
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun PrevGB() {
+    GlowingButton({}) {
+        Text("Madifiers")
     }
 }
 
@@ -368,7 +381,7 @@ class GlowingButtonColors internal constructor(
  *
  * @param amount brightness intensity of the color ranges from **-1f(darker)** to **1f(brightest)**
  */
-fun Color.brightness(amount: Float = 0.1f): Color {
+fun Color.brightness(@FloatRange(-1.0, to = 1.0) amount: Float = 0.1f): Color {
     val red = this.red
     val green = this.green
     val blue = this.blue
@@ -380,50 +393,4 @@ fun Color.brightness(amount: Float = 0.1f): Color {
     val brightenedBlue = (blue * (1f + amount)).coerceIn(0f, 1f)
 
     return Color(brightenedRed, brightenedGreen, brightenedBlue, alpha, colorSpace)
-}
-
-/**
- * Draws a **Canvas** behind the modified content giving it a glowing effect
- *
- * @param color color of the glowing shadow
- * @param borderRadius border radius of the glowing shadow
- * @param blurRadius glow radius of the shadow
- * @param offsetX X offset of the shadow
- * @param offsetY Y offset of the shadow
- * @param spread spread radius of the shadow
- */
-fun Modifier.glowingShadow(
-    color: Color,
-    borderRadius: Dp = 0.dp,
-    blurRadius: Dp = 0.dp,
-    offsetX: Dp = 0.dp,
-    offsetY: Dp = 0.dp,
-    spread: Dp = 0.dp,
-): Modifier {
-    return this.drawBehind {
-        this.drawIntoCanvas {
-            val paint = Paint()
-            val frameworkPaint = paint.asFrameworkPaint()
-            val spreadPixel = spread.toPx()
-            val leftPixel = (0f - spreadPixel) + offsetX.toPx()
-            val topPixel = (0f - spreadPixel) + offsetY.toPx()
-            val rightPixel = (this.size.width + spreadPixel)
-            val bottomPixel = (this.size.height + spreadPixel)
-
-            if (blurRadius != 0.dp) {
-                frameworkPaint.maskFilter =
-                    (BlurMaskFilter(blurRadius.toPx(), BlurMaskFilter.Blur.NORMAL))
-            }
-            frameworkPaint.color = color.toArgb()
-            it.drawRoundRect(
-                left = leftPixel,
-                top = topPixel,
-                right = rightPixel,
-                bottom = bottomPixel,
-                radiusX = borderRadius.toPx(),
-                radiusY = borderRadius.toPx(),
-                paint = paint,
-            )
-        }
-    }
 }

@@ -28,11 +28,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import pro.jayeshseth.windowUtils.NavigationBar
-import pro.jayeshseth.windowUtils.ScreenDimensions
-import pro.jayeshseth.windowUtils.StatusBars
-import pro.jayeshseth.windowUtils.isGestureNavigation
-import pro.jayeshseth.windowUtils.isInLandscapeMode
+import pro.jayeshseth.glowingButton.NavigationBar
+import pro.jayeshseth.glowingButton.ScreenDimensions
+import pro.jayeshseth.glowingButton.StatusBars
+import pro.jayeshseth.glowingButton.isGestureNavigation
+import pro.jayeshseth.glowingButton.isInLandscapeMode
 
 @Composable
 fun WindowInfoScreen() {

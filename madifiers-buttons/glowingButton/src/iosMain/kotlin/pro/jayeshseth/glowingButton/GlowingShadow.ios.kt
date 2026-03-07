@@ -1,4 +1,4 @@
-package pro.jayeshseth.windowUtils
+package pro.jayeshseth.glowingButton
 
 import androidx.compose.ui.graphics.Paint
 import org.jetbrains.skia.FilterBlurMode

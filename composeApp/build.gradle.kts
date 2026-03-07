@@ -67,6 +67,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(projects.madifiersWindow.windowUtils)
+                implementation(projects.madifiersButtons.glowingButton)
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
