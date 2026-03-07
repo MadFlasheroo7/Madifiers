@@ -18,7 +18,7 @@ import pro.jayeshseth.madifiers.Versions
 @Suppress("DSL_SCOPE_VIOLATION")
 
 plugins {
-    alias(libs.plugins.madifiers.library)
+    alias(libs.plugins.madifiers.cmp.library)
 }
 
 mavenPublishing {
@@ -33,20 +33,3 @@ mavenPublishing {
         name.set(artifactId)
     }
 }
-
-android {
-    namespace = libs.versions.namespace.windowUtils.get()
-    compileSdk = libs.versions.compile.sdk.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.min.sdk.get().toInt()
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-}
-
-dependencies {
-    implementation(libs.compose.foundation)
-}
-

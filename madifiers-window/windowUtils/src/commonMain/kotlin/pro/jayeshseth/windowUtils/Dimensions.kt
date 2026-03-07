@@ -15,12 +15,14 @@
  */
 package pro.jayeshseth.windowUtils
 
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+@Stable
 data class Dimensions(
-  val heightInDp: Dp = 0.dp,
-  val widthInDp: Dp = 0.dp,
-  val heightInPx: Int = 0,
-  val widthInPx: Int = 0,
+    val heightInDp: Dp = 0.dp,
+    val widthInDp: Dp = 0.dp,
+    val heightInPx: Int = 0,
+    val widthInPx: Int = 0,
 )

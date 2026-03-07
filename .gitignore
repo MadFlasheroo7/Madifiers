@@ -11,4 +11,5 @@ app/.idea/
 .cxx
 local.properties
 /buildSrc/build/
+.kotlin
 

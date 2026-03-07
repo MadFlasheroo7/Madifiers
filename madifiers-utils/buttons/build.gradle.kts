@@ -16,7 +16,7 @@ import pro.jayeshseth.madifiers.Versions
  * limitations under the License.
  */
 plugins {
-    alias(libs.plugins.madifiers.library)
+    alias(libs.plugins.madifiers.android.library)
 }
 
 mavenPublishing {

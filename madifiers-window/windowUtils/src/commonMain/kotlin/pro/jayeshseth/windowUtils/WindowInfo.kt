@@ -13,35 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@file:SuppressLint("ComposableNaming")
-
 package pro.jayeshseth.windowUtils
 
-import android.annotation.SuppressLint
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.safeGestures
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.unit.dp
 
 /**
  * [ScreenDimensions] returns the screen height and width in [Dp] and Px
  */
-@SuppressLint("ComposableNaming")
 @Composable
 fun ScreenDimensions(): Dimensions {
-    val configuration = LocalConfiguration.current
+    val windowInfo = LocalWindowInfo.current
     val density = LocalDensity.current
 
+    val sizePx = windowInfo.containerSize
+
     // Values in Dp
-    val heightInDp = configuration.screenHeightDp.dp
-    val widthInDp = configuration.screenWidthDp.dp
+    val heightInDp = with(density) { sizePx.height.toDp() }
+    val widthInDp = with(density) { sizePx.width.toDp() }
 
     // Values in Px
     val heightInPx = with(density) { heightInDp.roundToPx() }
@@ -72,23 +66,4 @@ fun NavigationBar(): Dimensions {
 
     val sizeInPx = with(density) { navigationBarSize.roundToPx() }
     return Dimensions(heightInDp = navigationBarSize, heightInPx = sizeInPx)
-}
-
-/**
- * [isGestureNavigation] checks if device is using gesture navigation bar
- */
-@Composable
-fun isGestureNavigation(): Boolean {
-    val safeGesture =
-        WindowInsets.safeGestures.asPaddingValues().calculateLeftPadding(LayoutDirection.Ltr)
-    return safeGesture != 0.dp
-}
-
-/**
- * [isInLandscapeMode] checks if device is in landscape orientation
- */
-@Composable
-fun isInLandscapeMode(): Boolean {
-    val configuration = LocalConfiguration.current
-    return configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 }
